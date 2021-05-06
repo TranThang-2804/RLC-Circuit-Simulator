@@ -11,7 +11,7 @@ public class SpecSetting {
 	public static double Width = 1000;				//(can be change)	//The Panel width
 	public static double Height = 700;				//(can be change)	//The Panel Height 
 	
-	public static Image image = new ImageIcon(Resistor.class.getResource("/imgs/parallel/registor_Parallel.png")).getImage();
+	public static Image image = new ImageIcon(Resistor.class.getResource("/imgs/parallel/resistor_Parallel.png")).getImage();
 	public static double parallelOGComponentWidth = image.getWidth(null);
 	public static double parallelOGComponentHeight = image.getHeight(null);
 	public static double parallelImageScale = 0.2;

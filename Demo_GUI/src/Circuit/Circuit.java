@@ -10,7 +10,7 @@ import Components.Source.Source;
 import guiWindows.SpecSetting;
 
 public class Circuit {
-	private boolean connectType = false;												//false: parallel, true: in line		
+	private boolean connectType = true;												//false: parallel, true: in line		
 	private ArrayList<RLCcomponent> components = new ArrayList<>();
 	private Source source;
 	

@@ -14,8 +14,8 @@ public class Resistor extends RLCcomponent{
 	@Override
 	public Image getComponentImage(boolean connectType) {
 		if(connectType == false)
-			return new ImageIcon(Resistor.class.getResource("/imgs/parallel/registor_Parallel.png")).getImage();
+			return new ImageIcon(Resistor.class.getResource("/imgs/parallel/resistor_Parallel.png")).getImage();
 		else
-			return new ImageIcon(Resistor.class.getResource("/imgs/series/Registor_Serie.png")).getImage();
+			return new ImageIcon(Resistor.class.getResource("/imgs/series/Resistor_Serie.png")).getImage();
 	}
 }

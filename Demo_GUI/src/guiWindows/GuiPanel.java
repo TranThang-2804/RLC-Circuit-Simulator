@@ -26,6 +26,9 @@ public class GuiPanel extends JPanel {
 		this.setBackground(Color.black);
 		this.setFocusable(true);	
 		this.circuit.addComponent(registor1);
+		this.circuit.addComponent(registor1);
+		this.circuit.addComponent(compacitor1);
+		this.circuit.addComponent(inductor1);
 		this.circuit.addSource(acsource);
 
 	}
