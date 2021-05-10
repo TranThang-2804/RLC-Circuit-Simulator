@@ -2,29 +2,15 @@ package guiWindows.input;
 import java.awt.*;
 import javax.swing.*;
 
-import Circuit.Circuit;
-import guiWindows.drawcircuit.GuiPanel;
 
 public class Screen extends JFrame{
-//    private JTextField[] tfield;
-//    private int count = 1;
-//    private int constantHeightSaveBtn = 36;
-//    private int constantHeightSaveLabel = 19;
-//    private int constantHeightBtn = constantHeightSaveBtn;
-//    private int constantHeightLabel = constantHeightSaveLabel;
-//    private int btn = 41;
-//    private JButton btnR;
-//    private JButton btnL;
-//    private JButton btnC;
-//    private JButton btnSubmit;
-//    private int space = 45;
     private Panel panel01;
     private Panel panel02;
     
 	public Screen() {
 		
 		Container cp = getContentPane();
-		cp.setLayout(new FlowLayout());
+		cp.setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(0, 0, 560, 400);
