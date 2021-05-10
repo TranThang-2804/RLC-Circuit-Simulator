@@ -1,10 +1,19 @@
-package guiWindows;
+package guiWindows.input;
 
 import javax.swing.*;
+
+import Circuit.Circuit;
+import Components.RLCcomponents.Capacitor;
+import Components.RLCcomponents.Inductor;
+import Components.RLCcomponents.RLCcomponent;
+import Components.RLCcomponents.Resistor;
+import Components.Source.ACsource;
+import guiWindows.drawcircuit.GuiFrame;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Panel extends JPanel{
 	private JTextField[] tfield;
@@ -19,9 +28,13 @@ public class Panel extends JPanel{
     private JButton btnC;
     private JButton btnSubmit;
     private int space = 45;
-    
+    private ArrayList<RLCcomponent> components;
+	private Circuit circuit;
+
 	public Panel() {
 		tfield = new JTextField[5];
+		components = new ArrayList<RLCcomponent>();
+		circuit = new Circuit();
 		btnR = new JButton("Add Resistor");
 	    btnR.setBounds(62, btn, 117, 29);
 		add(btnR);
@@ -44,7 +57,12 @@ public class Panel extends JPanel{
 		btnSubmit.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				for(int i = 0; i < components.size(); i++){
+					components.get(i).setSpec(Double.parseDouble(tfield[i].getText()));
+					circuit.addComponent(components.get(i));
+				}
+				circuit.addSource(new ACsource(20, "AC"));
+				new GuiFrame(circuit);
 			}
 		});
 	}
@@ -59,6 +77,8 @@ public class Panel extends JPanel{
 					Resistor.setBounds(38, constantHeightLabel, 22, 16);
 					add(Resistor);
 					constantHeightLabel+=space;
+					components.add(new Resistor(0, "R" + count));
+
 				}
 				else if(evt.getActionCommand().equals("Add Capacitor")) {
 					JLabel Resistor = new JLabel("C" + count);
@@ -66,13 +86,15 @@ public class Panel extends JPanel{
 					Resistor.setBounds(38, constantHeightLabel, 22, 16);
 					add(Resistor);
 					constantHeightLabel+=space;
+					components.add(new Capacitor(0, "C" + count));
 				}
-				else if(evt.getActionCommand().equals("Add Inductor")){
+				else if(evt.getActionCommand().equals("Add Inductor")) {
 					JLabel Resistor = new JLabel("L" + count);
 					Resistor.setHorizontalAlignment(SwingConstants.LEFT);
 					Resistor.setBounds(38, constantHeightLabel, 22, 16);
 					add(Resistor);
 					constantHeightLabel+=space;
+					components.add(new Inductor(0, "L" + count));
 				}
 				tfield[count-1] = new JTextField();
                 tfield[count-1].setBounds(38, constantHeightBtn, 200, 26);

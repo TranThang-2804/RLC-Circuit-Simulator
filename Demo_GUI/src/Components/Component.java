@@ -16,7 +16,9 @@ public abstract class Component {
 	public double getSpec() {
 		return this.spec;
 	}
-	
+	public void setSpec(double spec){
+		this.spec = spec;
+	}
 	public abstract Image getComponentImage(boolean connectType);
 	
 	public abstract void drawComponent(Graphics2D g2D, double startX, boolean connectType);

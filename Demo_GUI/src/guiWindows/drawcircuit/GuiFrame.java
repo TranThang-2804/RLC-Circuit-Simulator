@@ -1,11 +1,14 @@
-package guiWindows;
+package guiWindows.drawcircuit;
+
 
 import javax.swing.JFrame;
 
+import Circuit.Circuit;
+
 public class GuiFrame extends JFrame{
 	
-	public GuiFrame() {
-		GuiPanel gamePanel = new GuiPanel();
+	public GuiFrame(Circuit circuit) {
+		GuiPanel gamePanel = new GuiPanel(circuit);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);			
 		this.setResizable(true);
 		this.setVisible(true);

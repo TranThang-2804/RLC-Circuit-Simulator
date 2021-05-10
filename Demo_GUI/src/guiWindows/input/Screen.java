@@ -1,20 +1,9 @@
-package guiWindows;
+package guiWindows.input;
 import java.awt.*;
 import javax.swing.*;
 
+
 public class Screen extends JFrame{
-//    private JTextField[] tfield;
-//    private int count = 1;
-//    private int constantHeightSaveBtn = 36;
-//    private int constantHeightSaveLabel = 19;
-//    private int constantHeightBtn = constantHeightSaveBtn;
-//    private int constantHeightLabel = constantHeightSaveLabel;
-//    private int btn = 41;
-//    private JButton btnR;
-//    private JButton btnL;
-//    private JButton btnC;
-//    private JButton btnSubmit;
-//    private int space = 45;
     private Panel panel01;
     private Panel panel02;
     
@@ -35,13 +24,10 @@ public class Screen extends JFrame{
 		tabbedPane.addTab("Serial", null, panel02, null);
 		panel02.setLayout(null);
 		
+		
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(560, 420);
-	}
-	
-	public static void main(String[] args) {
-		new Screen();
 	}
 
 }

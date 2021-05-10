@@ -6,7 +6,7 @@ import java.awt.Image;
 import java.awt.geom.AffineTransform;
 
 import Components.Component;
-import guiWindows.SpecSetting;
+import guiWindows.drawcircuit.SpecSetting;
 
 public abstract class Source extends Component{
 

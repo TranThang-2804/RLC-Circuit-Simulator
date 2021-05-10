@@ -7,7 +7,7 @@ import Components.Component;
 import Components.RLCcomponents.RLCcomponent;
 import Components.Source.ACsource;
 import Components.Source.Source;
-import guiWindows.SpecSetting;
+import guiWindows.drawcircuit.SpecSetting;
 
 public class Circuit {
 	private boolean connectType = true;												//false: parallel, true: in line		
