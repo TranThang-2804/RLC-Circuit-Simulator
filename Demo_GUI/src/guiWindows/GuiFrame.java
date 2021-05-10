@@ -1,11 +1,16 @@
 package guiWindows;
 
+import java.util.ArrayList;
+
 import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+import Components.RLCcomponents.RLCcomponent;
 
 public class GuiFrame extends JFrame{
 	
-	public GuiFrame() {
-		GuiPanel gamePanel = new GuiPanel();
+	public GuiFrame(ArrayList<RLCcomponent> components, JTextField[] tfield) {
+		GuiPanel gamePanel = new GuiPanel(components,tfield);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);			
 		this.setResizable(true);
 		this.setVisible(true);

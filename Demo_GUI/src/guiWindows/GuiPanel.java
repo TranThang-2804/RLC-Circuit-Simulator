@@ -4,33 +4,27 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import Circuit.Circuit;
-import Components.RLCcomponents.Capacitor;
-import Components.RLCcomponents.Inductor;
-import Components.RLCcomponents.Resistor;
+import Components.RLCcomponents.RLCcomponent;
 import Components.Source.ACsource;
 
 public class GuiPanel extends JPanel {
 	Circuit circuit = new Circuit();
-	Resistor registor1 = new Resistor(20, "R1");
-	Capacitor compacitor1 = new Capacitor(20, "C1");
-	Inductor inductor1 = new Inductor(30, "L1");
-	ACsource acsource = new ACsource(20, "AC");
-	
-	public GuiPanel() {
-		this.setLayout(null);
-		this.setPreferredSize(new Dimension((int)SpecSetting.Width, (int)SpecSetting.Height));
-		this.setBackground(Color.black);
-		this.setFocusable(true);	
-		this.circuit.addComponent(registor1);
-		this.circuit.addComponent(registor1);
-		this.circuit.addComponent(compacitor1);
-		this.circuit.addComponent(inductor1);
-		this.circuit.addSource(acsource);
-
+	public GuiPanel(ArrayList<RLCcomponent> components, JTextField[] tfield) {
+		for(int i = 0; i < components.size(); i++){
+			components.get(i).setSpec(Double.parseDouble(tfield[i].getText()));
+			circuit.addComponent(components.get(i));
+		}
+		circuit.addSource(new ACsource(20, "AC"));
+	    setLayout(null);
+	    setPreferredSize(new Dimension((int)SpecSetting.Width, (int)SpecSetting.Height));
+	    setBackground(Color.black);
+		setFocusable(true);	
 	}
 	
 	public void paint(Graphics g) {
