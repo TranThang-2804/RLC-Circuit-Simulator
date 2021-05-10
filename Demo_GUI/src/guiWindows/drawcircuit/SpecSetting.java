@@ -1,4 +1,4 @@
-package guiWindows;
+package guiWindows.drawcircuit;
 
 import java.awt.Image;
 

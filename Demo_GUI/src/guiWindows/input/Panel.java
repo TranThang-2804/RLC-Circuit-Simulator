@@ -1,11 +1,14 @@
-package guiWindows;
+package guiWindows.input;
 
 import javax.swing.*;
 
+import Circuit.Circuit;
 import Components.RLCcomponents.Capacitor;
 import Components.RLCcomponents.Inductor;
 import Components.RLCcomponents.RLCcomponent;
 import Components.RLCcomponents.Resistor;
+import Components.Source.ACsource;
+import guiWindows.drawcircuit.GuiFrame;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -26,11 +29,12 @@ public class Panel extends JPanel{
     private JButton btnSubmit;
     private int space = 45;
     private ArrayList<RLCcomponent> components;
+	private Circuit circuit;
 
 	public Panel() {
 		tfield = new JTextField[5];
 		components = new ArrayList<RLCcomponent>();
-		// circuit = new Circuit();
+		circuit = new Circuit();
 		btnR = new JButton("Add Resistor");
 	    btnR.setBounds(62, btn, 117, 29);
 		add(btnR);
@@ -53,7 +57,12 @@ public class Panel extends JPanel{
 		btnSubmit.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new GuiFrame(components, tfield);
+				for(int i = 0; i < components.size(); i++){
+					components.get(i).setSpec(Double.parseDouble(tfield[i].getText()));
+					circuit.addComponent(components.get(i));
+				}
+				circuit.addSource(new ACsource(20, "AC"));
+				new GuiFrame(circuit);
 			}
 		});
 	}

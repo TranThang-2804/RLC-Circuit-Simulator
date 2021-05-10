@@ -1,6 +1,9 @@
-package guiWindows;
+package guiWindows.input;
 import java.awt.*;
 import javax.swing.*;
+
+import Circuit.Circuit;
+import guiWindows.drawcircuit.GuiPanel;
 
 public class Screen extends JFrame{
 //    private JTextField[] tfield;
@@ -21,7 +24,7 @@ public class Screen extends JFrame{
 	public Screen() {
 		
 		Container cp = getContentPane();
-		cp.setLayout(null);
+		cp.setLayout(new FlowLayout());
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(0, 0, 560, 400);
@@ -35,13 +38,10 @@ public class Screen extends JFrame{
 		tabbedPane.addTab("Serial", null, panel02, null);
 		panel02.setLayout(null);
 		
+		
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(560, 420);
-	}
-	
-	public static void main(String[] args) {
-		new Screen();
 	}
 
 }
