@@ -7,5 +7,4 @@ public class ElectricalCircuitSimulator {
 	public static void main(String[] args) {
 		new Screen();
 	}
-
 }

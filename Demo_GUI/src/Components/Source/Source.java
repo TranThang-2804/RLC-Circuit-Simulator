@@ -9,9 +9,10 @@ import Components.Component;
 import guiWindows.drawcircuit.SpecSetting;
 
 public abstract class Source extends Component{
-
-	Source(double spec, String name) {
+	private double frequency;
+	Source(double spec, double frequency, String name) {
 		super(spec, name);
+		this.frequency = frequency;
 	}
 	
 	public void drawComponent(Graphics2D g2D, double startX, boolean connectType) {

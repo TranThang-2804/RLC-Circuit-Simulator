@@ -6,10 +6,11 @@ import javax.swing.ImageIcon;
 
 import Components.RLCcomponents.Resistor;
 
-public class ACsource extends Source{
-	public ACsource(double spec, double frequency, String name) {
+public class DCsource extends Source{
+	public DCsource(double spec, double frequency, String name) {
 		super(spec, frequency, name);
 	}
+	
 	
 	@Override
 	public Image getComponentImage(boolean connectType) {
