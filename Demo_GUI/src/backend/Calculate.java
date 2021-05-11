@@ -29,11 +29,11 @@ public class Calculate {
 					temp.setR(com);
 				}
 				else if (temp instanceof Capacitor) {
-					com = new Complex(0.0,-2*Math.PI*((Source) circuit.getSource()).getF()*temp.getSpec());
+					com = new Complex(0.0,-2*Math.PI*((Source) circuit.getSource()).getFrequency()*temp.getSpec());
 					temp.setR(com);
 				}
 				else if (temp instanceof Inductor) {
-					com = new Complex(0.0,1/(2*Math.PI*((Source) circuit.getSource()).getF()*temp.getSpec()));
+					com = new Complex(0.0,1/(2*Math.PI*((Source) circuit.getSource()).getFrequency()*temp.getSpec()));
 					temp.setR(com);
 				}
 			}
@@ -139,15 +139,14 @@ public class Calculate {
 	
 	
 	public static void main(String[] args) {
-		Source s = new ACsource(10,"source1");
-		s.setF(10.0);
-		Circuit c = new Circuit(false,s);
+		Source s = new ACsource(10,5,"source1");
+		Circuit c = new Circuit(true,s);
 		RLCcomponent ca = new Capacitor(1,"c1");
 		RLCcomponent r = new Resistor(10,"r1");
-		//RLCcomponent l = new Inductor(1,"l1");
+		RLCcomponent l = new Inductor(1,"l1");
 		c.addComponent(ca);
 		c.addComponent(r);
-		//c.addComponent(l);
+		c.addComponent(l);
 		
 		Calculate cal = new Calculate(c);
 		

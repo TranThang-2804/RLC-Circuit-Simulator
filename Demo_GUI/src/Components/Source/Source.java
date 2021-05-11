@@ -14,17 +14,22 @@ public abstract class Source extends Component{
 		super(spec, name);
 		this.frequency = frequency;
 	}
-	private double f;
 	
 	
-	public double getF() {
-		return f;
+
+
+	public double getFrequency() {
+		return frequency;
 	}
 
 
-	public void setF(double f) {
-		this.f = f;
+
+
+	public void setFrequency(double frequency) {
+		this.frequency = frequency;
 	}
+
+
 
 
 	public void drawComponent(Graphics2D g2D, double startX, boolean connectType) {
