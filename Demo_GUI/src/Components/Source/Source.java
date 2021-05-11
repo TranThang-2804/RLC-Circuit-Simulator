@@ -21,6 +21,11 @@ public abstract class Source extends Component{
 	}
 
 
+	public void setF(double f) {
+		this.f = f;
+	}
+
+
 	public void drawComponent(Graphics2D g2D, double startX, boolean connectType) {
 		if(connectType == false) {
 			startX = startX-SpecSetting.parallelComponentWidth+SpecSetting.parallelComponentOffSetWithScale;
