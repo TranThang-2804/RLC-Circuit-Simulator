@@ -29,6 +29,18 @@ public class Circuit {
 			return false;
 	}
 	
+	public boolean isConnectType() {
+		return connectType;
+	}
+
+	public ArrayList<RLCcomponent> getComponents() {
+		return components;
+	}
+
+	public Source getSource() {
+		return source;
+	}
+
 	public void DrawCircuit(Graphics2D g2D) {
 		if(this.connectType == false) {
 			double startX = SpecSetting.Width/2 - (((double)this.components.size()*(SpecSetting.parallelComponentWidth - SpecSetting.parallelComponentOffSetWithScale)-SpecSetting.parallelComponentOffSetWithScale)/2)+SpecSetting.parallelComponentOffSetWithScale/2;
