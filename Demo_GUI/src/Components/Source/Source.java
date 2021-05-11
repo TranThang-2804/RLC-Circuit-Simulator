@@ -13,7 +13,14 @@ public abstract class Source extends Component{
 	Source(double spec, String name) {
 		super(spec, name);
 	}
+	private double f;
 	
+	
+	public double getF() {
+		return f;
+	}
+
+
 	public void drawComponent(Graphics2D g2D, double startX, boolean connectType) {
 		if(connectType == false) {
 			startX = startX-SpecSetting.parallelComponentWidth+SpecSetting.parallelComponentOffSetWithScale;
@@ -51,4 +58,6 @@ public abstract class Source extends Component{
 					 	 (int)(SpecSetting.serielowerYlocation+SpecSetting.connectorwidth/2-SpecSetting.serieupperYlocation));
 		}
 	}
+
+
 }
