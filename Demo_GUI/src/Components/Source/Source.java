@@ -17,12 +17,29 @@ public abstract class Source extends Component{
 	
 	public void drawComponent(Graphics2D g2D, double startX, boolean connectType) {
 		if(connectType == false) {
-			startX = startX-SpecSetting.parallelComponentWidth+SpecSetting.parallelComponentOffSetWithScale;
-			Image image = getComponentImage(connectType);
-			AffineTransform at = AffineTransform.getTranslateInstance((double)startX-image.getWidth(null)*SpecSetting.parallelImageScale/2, (double)SpecSetting.Height/2-image.getHeight(null)*(double)SpecSetting.parallelImageScale/2);
-			at.scale(SpecSetting.parallelImageScale, SpecSetting.parallelImageScale);
+			double privatescale = 0.3;
+			Image image =  getComponentImage(connectType);
+			AffineTransform at = AffineTransform.getTranslateInstance(startX-image.getWidth(null)*privatescale*SpecSetting.parallelImageScale/2,
+																		SpecSetting.parallelupperYlocation+SpecSetting.parallelComponentHeight/2-image.getHeight(null)*privatescale*SpecSetting.parallelImageScale/2);
+			at.scale(SpecSetting.serieImageScale*privatescale, SpecSetting.serieImageScale*privatescale);
 			g2D.drawImage(image, at, null);
-			g2D.drawString(this.name, (int)startX, (int)SpecSetting.Height/2-image.getHeight(null)*(int)SpecSetting.parallelImageScale/2);
+			g2D.setColor(Color.black);
+			g2D.fillRect((int)startX, 
+						 (int)SpecSetting.parallelupperYlocation-SpecSetting.connectorwidth/2, 
+						 (int)SpecSetting.connectorwidth, 
+						 (int)(SpecSetting.parallelComponentHeight/2-image.getHeight(null)*privatescale*SpecSetting.parallelImageScale/2));
+			g2D.fillRect((int)startX,
+						 (int)(SpecSetting.parallelupperYlocation+SpecSetting.parallelComponentHeight/2+image.getHeight(null)*privatescale*SpecSetting.parallelImageScale/2),
+						 (int)SpecSetting.connectorwidth, 
+						 (int)(SpecSetting.parallelComponentHeight/2-image.getHeight(null)*privatescale*SpecSetting.parallelImageScale/2));
+			g2D.fillRect((int)startX,
+						 (int)SpecSetting.parallelupperYlocation-SpecSetting.connectorwidth/2, 
+						 (int)(SpecSetting.Width-2*startX),
+						 (int)SpecSetting.connectorwidth);
+			g2D.fillRect((int)startX,
+					 	 (int)(SpecSetting.parallelupperYlocation+SpecSetting.parallelComponentHeight-SpecSetting.connectorwidth/2), 
+					 	 (int)(SpecSetting.Width-2*startX),
+					 	 (int)SpecSetting.connectorwidth);
 		}
 		else if(connectType == true){
 			double privatescale = 0.5;

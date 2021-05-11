@@ -34,11 +34,14 @@ public class Circuit {
 
 	public void DrawCircuit(Graphics2D g2D) {
 		if(this.connectType == false) {
-			double startX = SpecSetting.Width/2 - (((double)this.components.size()*(SpecSetting.parallelComponentWidth - SpecSetting.parallelComponentOffSetWithScale)-SpecSetting.parallelComponentOffSetWithScale)/2)+SpecSetting.parallelComponentOffSetWithScale/2;
+			double startX = (SpecSetting.Width - SpecSetting.parallelWidthBetweenCom*(double)this.components.size())/2;
 			this.source.drawComponent(g2D, startX, this.connectType);
+			System.out.println(startX);
+			startX += (SpecSetting.parallelWidthBetweenCom);
 			for(Component component:components) {
+				System.out.println(startX);
 				component.drawComponent(g2D, startX, this.connectType);
-				startX += (SpecSetting.parallelComponentWidth - SpecSetting.parallelComponentOffSetWithScale);
+				startX += (SpecSetting.parallelWidthBetweenCom);
 			}
 		}
 		

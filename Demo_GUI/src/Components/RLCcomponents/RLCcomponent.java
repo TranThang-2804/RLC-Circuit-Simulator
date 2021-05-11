@@ -17,10 +17,11 @@ public abstract class RLCcomponent extends Component {
 	public void drawComponent(Graphics2D g2D, double startX, boolean connectType) {
 		if(connectType == false) {
 			Image image = getComponentImage(connectType);
-			AffineTransform at = AffineTransform.getTranslateInstance((double)startX-image.getWidth(null)*SpecSetting.parallelImageScale/2, (double)SpecSetting.Height/2-image.getHeight(null)*(double)SpecSetting.parallelImageScale/2);
+			AffineTransform at = AffineTransform.getTranslateInstance(startX,
+										SpecSetting.parallelupperYlocation);
 			at.scale(SpecSetting.parallelImageScale, SpecSetting.parallelImageScale);
+			at.rotate(Math.toRadians(90));
 			g2D.drawImage(image, at, null);
-			g2D.drawString(this.name, (int)startX, (int)SpecSetting.Height/2-image.getHeight(null)*(int)SpecSetting.parallelImageScale/2);
 		}
 		else if(connectType == true){
 			Image image = getComponentImage(connectType);
