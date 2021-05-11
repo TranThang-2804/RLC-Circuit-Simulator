@@ -21,7 +21,7 @@ public class Circuit {
 	public void addSource(Source source) {
 		this.source = source;
 	}
-	
+	// true mean AC
 	public boolean getSourceType() {
 		if(this.source instanceof ACsource)
 			return true;															//false: DC, true: AC		
