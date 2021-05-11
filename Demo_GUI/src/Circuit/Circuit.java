@@ -48,6 +48,9 @@ public class Circuit {
 	public Source getSource() {
 		return source;
 	}
+	public void setConnectType(boolean connectType){
+		this.connectType = connectType;
+	}
 
 	public void DrawCircuit(Graphics2D g2D) {
 		if(this.connectType == false) {

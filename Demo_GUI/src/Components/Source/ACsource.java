@@ -7,8 +7,8 @@ import javax.swing.ImageIcon;
 import Components.RLCcomponents.Resistor;
 
 public class ACsource extends Source{
-	public ACsource(double spec, String name) {
-		super(spec, name);
+	public ACsource(double spec, double frequency, String name) {
+		super(spec, frequency, name);
 	}
 	
 	@Override

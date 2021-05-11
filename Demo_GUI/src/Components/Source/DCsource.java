@@ -2,16 +2,22 @@ package Components.Source;
 
 import java.awt.Image;
 
-public class DCsource extends Source {
+import javax.swing.ImageIcon;
 
-	DCsource(double spec, String name) {
-		super(spec, name);
+import Components.RLCcomponents.Resistor;
+
+public class DCsource extends Source{
+	public DCsource(double spec, double frequency, String name) {
+		super(spec, frequency, name);
 	}
-
+	
+	
 	@Override
 	public Image getComponentImage(boolean connectType) {
-		// TODO Auto-generated method stub
+		if(connectType==false)
+			return new ImageIcon(Resistor.class.getResource("/imgs/parallel/AC_source.png")).getImage();
+		else if(connectType == true)
+			return new ImageIcon(Resistor.class.getResource("/imgs/series/source.png")).getImage();
 		return null;
 	}
-
 }

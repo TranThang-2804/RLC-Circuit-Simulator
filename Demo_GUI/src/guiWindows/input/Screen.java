@@ -4,8 +4,8 @@ import javax.swing.*;
 
 
 public class Screen extends JFrame{
-    private Panel panel01;
-    private Panel panel02;
+    private Panel panelParallel;
+    private Panel panelSerial;
     
 	public Screen() {
 		
@@ -13,21 +13,21 @@ public class Screen extends JFrame{
 		cp.setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(0, 0, 560, 400);
+		tabbedPane.setBounds(0, 0, 763, 526);
 		cp.add(tabbedPane);
 		
-		panel01 = new Panel();
-		tabbedPane.addTab("Parallel", null, panel01, null);
-		panel01.setLayout(null);
+		panelParallel = new Panel(false);
+		tabbedPane.addTab("Parallel", null, panelParallel, null);
+		panelParallel.setLayout(null);
 		
-		panel02 = new Panel();
-		tabbedPane.addTab("Serial", null, panel02, null);
-		panel02.setLayout(null);
+		panelSerial = new Panel(true);
+		tabbedPane.addTab("Serial", null, panelSerial, null);
+		panelSerial.setLayout(null);
 		
 		
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(560, 420);
+		setSize(763, 550);
 	}
 
 }
