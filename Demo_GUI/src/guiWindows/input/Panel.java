@@ -8,6 +8,7 @@ import Components.RLCcomponents.Inductor;
 import Components.RLCcomponents.RLCcomponent;
 import Components.RLCcomponents.Resistor;
 import Components.Source.ACsource;
+import Components.Source.DCsource;
 import guiWindows.drawcircuit.GuiFrame;
 
 import java.awt.Color;
@@ -140,7 +141,13 @@ public class Panel extends JPanel{
 						check++;
 					}
 				}
-				circuit.addSource(new ACsource(Double.parseDouble(tfVoltage.getText()), (String) cbOfSource.getSelectedItem()));
+				String sourceType = (String) cbOfSource.getSelectedItem();
+				if(sourceType.equals("AC")){
+					circuit.addSource(new ACsource(Double.parseDouble(tfVoltage.getText()), Double.parseDouble(tfFrequency.getText()), sourceType));
+				}
+				else {
+					circuit.addSource(new DCsource(Double.parseDouble(tfVoltage.getText()),Double.MAX_VALUE, sourceType));
+				}
 				if(check == components.size()){
 					new GuiFrame(circuit);
 				}
