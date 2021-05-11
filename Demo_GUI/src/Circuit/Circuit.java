@@ -28,7 +28,10 @@ public class Circuit {
 		else
 			return false;
 	}
-	
+	public void setConnectType(boolean connectType){
+		this.connectType = connectType;
+	}
+
 	public void DrawCircuit(Graphics2D g2D) {
 		if(this.connectType == false) {
 			double startX = SpecSetting.Width/2 - (((double)this.components.size()*(SpecSetting.parallelComponentWidth - SpecSetting.parallelComponentOffSetWithScale)-SpecSetting.parallelComponentOffSetWithScale)/2)+SpecSetting.parallelComponentOffSetWithScale/2;
