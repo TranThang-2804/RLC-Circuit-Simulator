@@ -14,6 +14,14 @@ public class Circuit {
 	private ArrayList<RLCcomponent> components = new ArrayList<>();
 	private Source source;
 	
+	public Circuit(boolean connectType,Source source) {
+		this.connectType = connectType;
+		this.source = source;
+	}
+	public Circuit() {
+		super();
+	}
+	
 	public void addComponent(RLCcomponent rlccomponent) {
 		this.components.add(rlccomponent);
 	}
