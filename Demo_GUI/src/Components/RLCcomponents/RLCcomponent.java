@@ -17,8 +17,8 @@ public abstract class RLCcomponent extends Component {
 	}
 	
 	private Complex R;
-	private Complex L;
-	private Complex C;
+	private Complex U;
+	private Complex I;
 
 	
 	public Complex getR() {
@@ -33,26 +33,26 @@ public abstract class RLCcomponent extends Component {
 
 
 
-	public Complex getL() {
-		return L;
+	public Complex getU() {
+		return U;
 	}
 
 
 
-	public void setL(Complex l) {
-		L = l;
+	public void setU(Complex u) {
+		U = u;
 	}
 
 
 
-	public Complex getC() {
-		return C;
+	public Complex getI() {
+		return I;
 	}
 
 
 
-	public void setC(Complex c) {
-		C = c;
+	public void setI(Complex i) {
+		I = i;
 	}
 
 
