@@ -17,18 +17,20 @@ public class SpecSetting {
 	
 	
 	// Can be change:
-	public static double Width = 1000;				//(can be change)	//The Panel width
-	public static double Height = 700;				//(can be change)	//The Panel Height 
+	public static double Width = 444;				//(can be change)	//The Panel width
+	public static double Height = 241;				//(can be change)	//The Panel Height 
 	
-	public static double serieImageScale = 0.15;
-	public static double serielowerYlocation = 450;
-	public static double serieupperYlocation = 150;
+
+	public static double serieImageScale = 0.06;
+	public static double serielowerYlocation = 200;
+	public static double serieupperYlocation = 120;
 	
-	public static double parallelImageScale = 0.15;
+	public static double parallelImageScale = 0.12;
 	public static double parallelComponentDistance = 800;
 	public static double parallelupperYlocation = 150;
 	
 	public static double sourcescale = 0.25;
+
 	
 	
 	//Can't be change

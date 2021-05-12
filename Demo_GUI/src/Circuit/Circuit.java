@@ -15,7 +15,9 @@ public class Circuit {
 	private Source source;
 	
 	public void addComponent(RLCcomponent rlccomponent) {
-		this.components.add(rlccomponent);
+		if(rlccomponent != null){
+			this.components.add(rlccomponent);
+		}
 	}
 	
 	public void addSource(Source source) {
