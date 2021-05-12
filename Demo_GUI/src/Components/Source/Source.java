@@ -10,6 +10,7 @@ import guiWindows.drawcircuit.SpecSetting;
 
 public abstract class Source extends Component{
 	private double frequency;
+	
 	Source(double spec, double frequency, String name) {
 		super(spec, name);
 		this.frequency = frequency;
