@@ -18,7 +18,7 @@ public abstract class Source extends Component{
 	
 	public void drawComponent(Graphics2D g2D, double startX, boolean connectType) {
 		if(connectType == false) {
-			Image image =  getComponentImage(connectType);
+			Image image =  getComponentImage();
 			AffineTransform at = AffineTransform.getTranslateInstance(startX-image.getWidth(null)*SpecSetting.sourcescale*SpecSetting.parallelImageScale/2,
 																		SpecSetting.parallelupperYlocation+SpecSetting.parallelComponentHeight/2-image.getHeight(null)*SpecSetting.sourcescale*SpecSetting.parallelImageScale/2);
 			at.scale(SpecSetting.parallelImageScale*SpecSetting.sourcescale, SpecSetting.parallelImageScale*SpecSetting.sourcescale);
@@ -42,7 +42,7 @@ public abstract class Source extends Component{
 					 	 (int)SpecSetting.parallelconnectorwidth);
 		}
 		else if(connectType == true){
-			Image image =  getComponentImage(connectType);
+			Image image =  getComponentImage();
 			AffineTransform at = AffineTransform.getTranslateInstance(SpecSetting.Width/2-image.getWidth(null)*SpecSetting.sourcescale*SpecSetting.serieImageScale/2, 
 																	  SpecSetting.serielowerYlocation-image.getHeight(null)*(double)SpecSetting.serieImageScale*SpecSetting.sourcescale/2);
 			at.scale(SpecSetting.serieImageScale*SpecSetting.sourcescale, SpecSetting.serieImageScale*SpecSetting.sourcescale);

@@ -12,7 +12,7 @@ public class DCsource extends Source{
 	}
 	
 	@Override
-	public Image getComponentImage(boolean connectType) {
+	public Image getComponentImage() {
 		return new ImageIcon(Resistor.class.getResource("/imgs/DCsource.png")).getImage();
 	}
 }

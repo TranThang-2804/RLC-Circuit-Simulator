@@ -12,7 +12,7 @@ public class Resistor extends RLCcomponent{
 	}
 
 	@Override
-	public Image getComponentImage(boolean connectType) {
+	public Image getComponentImage() {
 		return new ImageIcon(Resistor.class.getResource("/imgs/registor.png")).getImage();
 	}
 }

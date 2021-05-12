@@ -16,7 +16,7 @@ public abstract class RLCcomponent extends Component {
 	
 	public void drawComponent(Graphics2D g2D, double startX, boolean connectType) {
 		if(connectType == false) {
-			Image image = getComponentImage(connectType);
+			Image image = getComponentImage();
 			AffineTransform at = AffineTransform.getTranslateInstance(startX+SpecSetting.parallelComponentWidth/2,
 										SpecSetting.parallelupperYlocation);
 			at.scale(SpecSetting.parallelImageScale, SpecSetting.parallelImageScale);
@@ -26,7 +26,7 @@ public abstract class RLCcomponent extends Component {
 			g2D.drawString(this.name+' '+this.spec, (int)(startX+SpecSetting.serieComponentWidth/2-SpecSetting.parallellabelX), (int)(SpecSetting.serieupperYlocation + SpecSetting.parallelComponentHeight/2 - SpecSetting.parallellabelY));
 		}
 		else if(connectType == true){
-			Image image = getComponentImage(connectType);
+			Image image = getComponentImage();
 			AffineTransform at = AffineTransform.getTranslateInstance((double)startX, (double)SpecSetting.serieupperYlocation-SpecSetting.serieComponentHeight/2+SpecSetting.serieconnectorwidth/2);
 			at.scale(SpecSetting.serieImageScale, SpecSetting.serieImageScale);
 			g2D.drawImage(image, at, null);
