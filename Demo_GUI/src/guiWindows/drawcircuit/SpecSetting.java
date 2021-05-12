@@ -24,10 +24,14 @@ public class SpecSetting {
 	public static double serieImageScale = 0.06;
 	public static double serielowerYlocation = 200;
 	public static double serieupperYlocation = 120;
+	public static double serielabelX = 20;
+	public static double serielabelY = 5;
 	
-	public static double parallelImageScale = 0.12;
+	public static double parallelImageScale = 0.06;
 	public static double parallelComponentDistance = 800;
-	public static double parallelupperYlocation = 150;
+	public static double parallelupperYlocation = 120;
+	public static double parallellabelX = 30;
+	public static double parallellabelY; 
 	
 	public static double sourcescale = 0.25;
 
@@ -41,5 +45,5 @@ public class SpecSetting {
 
 	public static double serieComponentWidth = serieOGComponentWidth*serieImageScale;
 	public static double serieComponentHeight = serieOGComponentHeight*serieImageScale;
-	public static double serieconnectorwidth = connectorwidth*serieImageScale; 
+	public static double serieconnectorwidth = connectorwidth*serieImageScale;
 }

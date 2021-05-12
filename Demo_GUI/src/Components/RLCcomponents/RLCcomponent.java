@@ -21,14 +21,16 @@ public abstract class RLCcomponent extends Component {
 										SpecSetting.parallelupperYlocation);
 			at.scale(SpecSetting.parallelImageScale, SpecSetting.parallelImageScale);
 			at.rotate(Math.toRadians(90));
+			g2D.drawString(this.name+' '+this.spec, 0, 0);
 			g2D.drawImage(image, at, null);
+			g2D.drawString(this.name+' '+this.spec, (int)(startX+SpecSetting.serieComponentWidth/2-SpecSetting.parallellabelX), (int)(SpecSetting.serieupperYlocation + SpecSetting.parallelComponentHeight/2 - SpecSetting.parallellabelY));
 		}
 		else if(connectType == true){
 			Image image = getComponentImage(connectType);
 			AffineTransform at = AffineTransform.getTranslateInstance((double)startX, (double)SpecSetting.serieupperYlocation-SpecSetting.serieComponentHeight/2+SpecSetting.serieconnectorwidth/2);
 			at.scale(SpecSetting.serieImageScale, SpecSetting.serieImageScale);
 			g2D.drawImage(image, at, null);
-			g2D.drawString(this.name, (int)startX+(int)SpecSetting.serieComponentWidth/2, (int)((double)SpecSetting.serieupperYlocation-SpecSetting.serieComponentHeight/2));
+			g2D.drawString(this.name+' '+this.spec, (int)(startX+SpecSetting.serieComponentWidth/2-SpecSetting.serielabelX), (int)(SpecSetting.serieupperYlocation-SpecSetting.serielabelY));
 		}
 	}
 }

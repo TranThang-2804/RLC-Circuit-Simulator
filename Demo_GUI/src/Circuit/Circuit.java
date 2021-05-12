@@ -35,24 +35,26 @@ public class Circuit {
 	}
 
 	public void DrawCircuit(Graphics2D g2D) {
-		if(this.connectType == false) {
-			double startX = (SpecSetting.Width - SpecSetting.parallelWidthBetweenCom*(double)this.components.size())/2;
-			this.source.drawComponent(g2D, startX, this.connectType);
-			System.out.println(startX);
-			startX += (SpecSetting.parallelWidthBetweenCom);
-			for(Component component:components) {
+		if(this.components.size()!=0) {
+			if(this.connectType == false) {
+				double startX = (SpecSetting.Width - SpecSetting.parallelWidthBetweenCom*(double)this.components.size())/2;
+				this.source.drawComponent(g2D, startX, this.connectType);
 				System.out.println(startX);
-				component.drawComponent(g2D, startX, this.connectType);
 				startX += (SpecSetting.parallelWidthBetweenCom);
+				for(Component component:components) {
+					System.out.println(startX);
+					component.drawComponent(g2D, startX, this.connectType);
+					startX += (SpecSetting.parallelWidthBetweenCom);
+				}
 			}
-		}
 		
-		else if(this.connectType == true) {
-			double startX = (SpecSetting.Width - SpecSetting.serieComponentWidth*(double)this.components.size())/2;
-			this.source.drawComponent(g2D, startX, this.connectType);
-			for(Component component:components) {
-				component.drawComponent(g2D, startX, this.connectType);
-				startX+= SpecSetting.serieComponentWidth;
+			else if(this.connectType == true) {
+				double startX = (SpecSetting.Width - SpecSetting.serieComponentWidth*(double)this.components.size())/2;
+				this.source.drawComponent(g2D, startX, this.connectType);
+				for(Component component:components) {
+					component.drawComponent(g2D, startX, this.connectType);
+					startX+= SpecSetting.serieComponentWidth;
+				}
 			}
 		}
 	}

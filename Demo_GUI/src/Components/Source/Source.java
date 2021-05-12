@@ -49,15 +49,15 @@ public abstract class Source extends Component{
 			
 			g2D.drawImage(image, at, null);
 			g2D.setColor(Color.black);
-			g2D.fillRect((int)startX,
-						 (int)(SpecSetting.serielowerYlocation-SpecSetting.serieconnectorwidth/2), 
-						 (int)(SpecSetting.Width/2-image.getWidth(null)*SpecSetting.sourcescale*SpecSetting.serieImageScale/2 - startX),  
+			g2D.fillRect((int)(startX-SpecSetting.serieconnectorwidth/2),
+						 (int)(SpecSetting.serielowerYlocation), 
+						 (int)(SpecSetting.Width/2-image.getWidth(null)*SpecSetting.sourcescale*SpecSetting.serieImageScale/2 + SpecSetting.serieconnectorwidth - startX),  
 						 (int)(SpecSetting.serieconnectorwidth));
 			g2D.fillRect((int)(SpecSetting.Width/2+image.getWidth(null)*SpecSetting.sourcescale*SpecSetting.serieImageScale/2), 
 					 	 (int)(SpecSetting.serielowerYlocation), 
 						 (int)(SpecSetting.Width/2-image.getWidth(null)*SpecSetting.sourcescale*SpecSetting.serieImageScale/2 + SpecSetting.serieconnectorwidth - startX),  
 						 (int)(SpecSetting.serieconnectorwidth));
-			g2D.fillRect((int)(startX-SpecSetting.serieconnectorwidth), 
+			g2D.fillRect((int)(startX-SpecSetting.serieconnectorwidth/2), 
 						 (int)(SpecSetting.serieupperYlocation), 
 						 (int)(SpecSetting.serieconnectorwidth), 
 						 (int)(SpecSetting.serielowerYlocation+SpecSetting.serieconnectorwidth/2-SpecSetting.serieupperYlocation));
