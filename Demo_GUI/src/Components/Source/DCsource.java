@@ -14,10 +14,6 @@ public class DCsource extends Source{
 	
 	@Override
 	public Image getComponentImage(boolean connectType) {
-		if(connectType==false)
-			return new ImageIcon(Resistor.class.getResource("/imgs/parallel/AC_source.png")).getImage();
-		else if(connectType == true)
-			return new ImageIcon(Resistor.class.getResource("/imgs/series/source.png")).getImage();
-		return null;
+		return new ImageIcon(Resistor.class.getResource("/imgs/series/source.png")).getImage();
 	}
 }

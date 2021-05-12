@@ -13,6 +13,6 @@ public class ACsource extends Source{
 	
 	@Override
 	public Image getComponentImage(boolean connectType) {
-			return new ImageIcon(Resistor.class.getResource("/imgs/series/source.png")).getImage();
+		return new ImageIcon(Resistor.class.getResource("/imgs/series/source.png")).getImage();
 	}
 }

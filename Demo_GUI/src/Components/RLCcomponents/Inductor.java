@@ -13,7 +13,7 @@ public class Inductor extends RLCcomponent{
 
 	@Override
 	public Image getComponentImage(boolean connectType) {
-			return new ImageIcon(Resistor.class.getResource("/imgs/series/inductor_Serie.png")).getImage();
+		return new ImageIcon(Resistor.class.getResource("/imgs/series/inductor_Serie.png")).getImage();
 	}
 
 }
