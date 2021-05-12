@@ -15,13 +15,11 @@ public class GuiPanel extends JPanel {
 		this.circuit = circuit;
 	    setLayout(null);
 	    setPreferredSize(new Dimension((int)SpecSetting.Width, (int)SpecSetting.Height));
-	    setBackground(Color.black);
-		setFocusable(true);
 	}
 	
 	public void paint(Graphics g) {
 		Graphics2D g2D = (Graphics2D) g;
-		g2D.setBackground(Color.red);;
+		g2D.setBackground(Color.red);
 		circuit.DrawCircuit(g2D);
 	}
 }
