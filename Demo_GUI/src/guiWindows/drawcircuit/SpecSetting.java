@@ -29,7 +29,8 @@ public class SpecSetting {
 	
 	public static double parallelImageScale = 0.06;
 	public static double parallelComponentDistance = 800;
-	public static double parallelupperYlocation = 20;
+
+	public static double parallelupperYlocation = 120;
 	public static double parallellabelX = 30;
 	public static double parallellabelY; 
 	
