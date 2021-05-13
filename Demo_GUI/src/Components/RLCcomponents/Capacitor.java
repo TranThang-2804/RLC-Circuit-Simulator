@@ -11,10 +11,7 @@ public class Capacitor extends RLCcomponent{
 	}
 
 	@Override
-	public Image getComponentImage(boolean connectType) {
-		if(connectType == false)
-			return new ImageIcon(Capacitor.class.getResource("/imgs/parallel/capacitor_Parallel.png")).getImage();
-		else
-			return new ImageIcon(Capacitor.class.getResource("/imgs/series/capacitor_Serie.png")).getImage();
+	public Image getComponentImage() {
+		return new ImageIcon(Capacitor.class.getResource("/imgs/capacitor.png")).getImage();
 	}
 }
