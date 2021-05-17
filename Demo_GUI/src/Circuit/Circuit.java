@@ -39,10 +39,8 @@ public class Circuit {
 			if(this.connectType == false) {
 				double startX = (SpecSetting.Width - SpecSetting.parallelWidthBetweenCom*(double)this.components.size())/2;
 				this.source.drawComponent(g2D, startX, this.connectType);
-				System.out.println(startX);
 				startX += (SpecSetting.parallelWidthBetweenCom);
 				for(Component component:components) {
-					System.out.println(startX);
 					component.drawComponent(g2D, startX, this.connectType);
 					startX += (SpecSetting.parallelWidthBetweenCom);
 				}
