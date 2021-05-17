@@ -14,6 +14,14 @@ public class Circuit {
 	private ArrayList<RLCcomponent> components = new ArrayList<>();
 	private Source source;
 	
+	public Circuit(boolean connectType,Source source) {
+		this.connectType = connectType;
+		this.source = source;
+	}
+	public Circuit() {
+		super();
+	}
+	
 	public void addComponent(RLCcomponent rlccomponent) {
 		if(rlccomponent != null){
 			this.components.add(rlccomponent);
@@ -23,12 +31,24 @@ public class Circuit {
 	public void addSource(Source source) {
 		this.source = source;
 	}
-	
+	// true mean AC
 	public boolean getSourceType() {
 		if(this.source instanceof ACsource)
 			return true;															//false: DC, true: AC		
 		else
 			return false;
+	}
+	
+	public boolean isConnectType() {
+		return connectType;
+	}
+
+	public ArrayList<RLCcomponent> getComponents() {
+		return components;
+	}
+
+	public Source getSource() {
+		return source;
 	}
 	public void setConnectType(boolean connectType){
 		this.connectType = connectType;
