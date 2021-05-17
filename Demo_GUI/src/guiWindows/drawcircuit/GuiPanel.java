@@ -7,7 +7,7 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
-import Circuit.Circuit;
+import circuit.Circuit;
 
 public class GuiPanel extends JPanel {
 	Circuit circuit = new Circuit();

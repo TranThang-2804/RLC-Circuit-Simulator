@@ -16,6 +16,23 @@ public abstract class Source extends Component{
 		this.frequency = frequency;
 	}
 	
+	
+
+
+	public double getFrequency() {
+		return frequency;
+	}
+
+
+
+
+	public void setFrequency(double frequency) {
+		this.frequency = frequency;
+	}
+
+
+
+
 	public void drawComponent(Graphics2D g2D, double startX, boolean connectType) {
 		if(connectType == false) {
 			Image image =  getComponentImage();
@@ -67,4 +84,6 @@ public abstract class Source extends Component{
 					 	 (int)(SpecSetting.serielowerYlocation+SpecSetting.serieconnectorwidth/2-SpecSetting.serieupperYlocation));
 		}
 	}
+
+
 }

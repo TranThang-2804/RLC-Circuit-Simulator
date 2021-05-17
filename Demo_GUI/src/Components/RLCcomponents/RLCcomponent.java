@@ -1,11 +1,13 @@
 package Components.RLCcomponents;
-
 import java.awt.Graphics2D;
+
 import java.awt.Image;
 import java.awt.geom.AffineTransform;
 
 import Components.Component;
 import guiWindows.drawcircuit.SpecSetting;
+import Complex.Complex;
+
 
 public abstract class RLCcomponent extends Component {
 
@@ -14,6 +16,47 @@ public abstract class RLCcomponent extends Component {
 		// TODO Auto-generated constructor stub
 	}
 	
+	private Complex R;
+	private Complex U;
+	private Complex I;
+
+	
+	public Complex getR() {
+		return R;
+	}
+
+
+
+	public void setR(Complex r) {
+		R = r;
+	}
+
+
+
+	public Complex getU() {
+		return U;
+	}
+
+
+
+	public void setU(Complex u) {
+		U = u;
+	}
+
+
+
+	public Complex getI() {
+		return I;
+	}
+
+
+
+	public void setI(Complex i) {
+		I = i;
+	}
+
+
+
 	public void drawComponent(Graphics2D g2D, double startX, boolean connectType) {
 		if(connectType == false) {
 			Image image = getComponentImage();

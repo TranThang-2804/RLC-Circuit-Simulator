@@ -3,7 +3,7 @@ package guiWindows.drawcircuit;
 
 import javax.swing.JFrame;
 
-import Circuit.Circuit;
+import circuit.Circuit;
 
 public class GuiFrame extends JFrame{
 	
