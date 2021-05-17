@@ -1,4 +1,4 @@
-package Circuit;
+package circuit;
 
 import java.awt.Graphics2D;
 import java.util.ArrayList;
@@ -39,7 +39,7 @@ public class Circuit {
 			return false;
 	}
 	
-	public boolean isConnectType() {
+	public boolean getConnectType() {
 		return connectType;
 	}
 

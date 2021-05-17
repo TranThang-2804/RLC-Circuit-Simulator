@@ -2,13 +2,14 @@ package guiWindows.input;
 
 import javax.swing.*;
 
-import Circuit.Circuit;
 import Components.RLCcomponents.Capacitor;
 import Components.RLCcomponents.Inductor;
 import Components.RLCcomponents.RLCcomponent;
 import Components.RLCcomponents.Resistor;
 import Components.Source.ACsource;
 import Components.Source.DCsource;
+import backend.Calculate;
+import circuit.Circuit;
 import guiWindows.drawcircuit.GuiPanel;
 import guiWindows.drawcircuit.SpecSetting;
 
@@ -59,7 +60,7 @@ public class Panel extends JPanel{
 		cbOfSource.setModel(new DefaultComboBoxModel(new String[]{"AC", "DC"}));
 		cbOfSource.setBounds(230, 7, 70, 27);
 		add(cbOfSource);
-		cbOfSource.addActionListener(new BtnSubmitListener());
+		cbOfSource.addActionListener(new BtnPreSubmitListener());
 		cbOfSource.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -120,26 +121,26 @@ public class Panel extends JPanel{
 		btnR = new JButton("Add Resistor");
 	    btnR.setBounds(17, btn, 117, 29);
 		add(btnR);
-		btnR.addActionListener(new BtnSubmitListener());
+		btnR.addActionListener(new BtnPreSubmitListener());
 		btnR.addActionListener(new BtnAddListener());
 
 		btnC = new JButton("Add Capacitor");
 		btnC.setBounds(166, btn, 117, 29);
 		add(btnC);
-		btnC.addActionListener(new BtnSubmitListener());
+		btnC.addActionListener(new BtnPreSubmitListener());
 		btnC.addActionListener(new BtnAddListener());
 		
 		btnL = new JButton("Add Inductor");
 		btnL.setBounds(315, btn, 117, 29);
 		add(btnL);
-		btnL.addActionListener(new BtnSubmitListener());
+		btnL.addActionListener(new BtnPreSubmitListener());
 		btnL.addActionListener(new BtnAddListener());
 
 		btnRemovePrevious = new JButton("Remove Last Component");
 		btnRemovePrevious.setBounds(17, 380, 201, 35);
 		btnRemovePrevious.setForeground(Color.RED);
 		add(btnRemovePrevious);
-		btnRemovePrevious.addActionListener(new BtnSubmitListener());
+		btnRemovePrevious.addActionListener(new BtnPreSubmitListener());
 		btnRemovePrevious.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -167,7 +168,7 @@ public class Panel extends JPanel{
 		btnRemoveAll.setBounds(230, 380, 201, 35);
 		btnRemoveAll.setForeground(Color.RED);
 		add(btnRemoveAll);
-		btnRemoveAll.addActionListener(new BtnSubmitListener());
+		btnRemoveAll.addActionListener(new BtnPreSubmitListener());
 		btnRemoveAll.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -197,7 +198,22 @@ public class Panel extends JPanel{
 		btnSubmit.setBounds(151, 433, 147, 41);
 		btnSubmit.setForeground(Color.BLUE);
 		add(btnSubmit);
-		btnSubmit.addActionListener(new BtnSubmitListener());
+		btnSubmit.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				for(int i = 0; i < circuit.getComponents().size(); i++) {
+					circuit.getComponents().get(i).setSpec(Double.parseDouble(tfield[i].getText()));
+				}
+				new Calculate(circuit);
+				for (RLCcomponent temp: circuit.getComponents()) {
+					System.out.println(temp.getU().toString());
+					System.out.println(temp.getI().toString());
+					System.out.println(temp.getR().toString());
+					System.out.println();
+
+				}
+			}
+		});
 	}
 	
 	private class BtnAddListener implements ActionListener {
@@ -248,7 +264,7 @@ public class Panel extends JPanel{
 		} 
 	}
 
-	private class BtnSubmitListener implements ActionListener{
+	private class BtnPreSubmitListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 				circuit = new Circuit();
@@ -273,7 +289,7 @@ public class Panel extends JPanel{
 				}
 				else {
 					if(tfVoltage != null){
-					circuit.addSource(new DCsource(Double.parseDouble(tfVoltage.getText()), Double.POSITIVE_INFINITY, sourceType));
+						circuit.addSource(new DCsource(Double.parseDouble(tfVoltage.getText()), Double.POSITIVE_INFINITY, sourceType));
 					}
 				}
 				if(check == components.size() && tfVoltage != null){
