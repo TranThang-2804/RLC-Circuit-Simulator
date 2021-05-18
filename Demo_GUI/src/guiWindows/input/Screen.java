@@ -13,7 +13,7 @@ public class Screen extends JFrame{
 		cp.setLayout(null);
 		setLocation(350, 200);
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(0, 0, 900, 526);
+		tabbedPane.setBounds(0, 0, 1024, 526);
 		cp.add(tabbedPane);
 		
 		panelParallel = new Panel(false);
@@ -26,7 +26,7 @@ public class Screen extends JFrame{
 		
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(900, 550);
+		setSize(1024, 550);
 	}
 
 }
