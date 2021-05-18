@@ -17,7 +17,7 @@ public class SpecSetting {
 	
 	
 	// Can be change:
-	public static double Width = 444;				//(can be change)	//The Panel width
+	public static double Width = 540;				//(can be change)	//The Panel width
 	public static double Height = 241;				//(can be change)	//The Panel Height 
 	
 

@@ -1,6 +1,7 @@
 package guiWindows.input;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 
 import Components.RLCcomponents.Capacitor;
 import Components.RLCcomponents.Inductor;
@@ -12,6 +13,7 @@ import backend.Calculate;
 import circuit.Circuit;
 import guiWindows.drawcircuit.GuiPanel;
 import guiWindows.drawcircuit.SpecSetting;
+import guiWindows.ouput.TablePanel;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -46,6 +48,7 @@ public class Panel extends JPanel{
 	private int AC = 0;
 	private int DC = 0;
 	GuiPanel panelToDraw;
+	TablePanel tablePanel;
 	public Panel(boolean connectType) {
 		this.connectType = connectType;
 		tfield = new JTextField[5];
@@ -207,11 +210,18 @@ public class Panel extends JPanel{
 				new Calculate(circuit);
 				for (RLCcomponent temp: circuit.getComponents()) {
 					System.out.println(temp.getU().toString());
-					System.out.println(temp.getI().toString());
+					//System.out.println(temp.getI().toString());
 					System.out.println(temp.getR().toString());
-					System.out.println();
-
 				}
+				if(tablePanel != null){
+						remove(tablePanel);
+					}
+					tablePanel = new TablePanel(circuit);
+					tablePanel.setBounds(465, (int)SpecSetting.Height, (int)SpecSetting.Width - 2, 234);
+					tablePanel.setBorder(new LineBorder(Color.BLACK, 2, true));
+					add(tablePanel);
+					tablePanel.repaint();
+					repaint();
 			}
 		});
 	}
