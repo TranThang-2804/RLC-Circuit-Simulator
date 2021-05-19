@@ -13,6 +13,10 @@ public abstract class Component {
 		this.name = name;
 	}
 	
+	public String getName() {
+		return name;
+	}
+	
 	public double getSpec() {
 		return this.spec;
 	}

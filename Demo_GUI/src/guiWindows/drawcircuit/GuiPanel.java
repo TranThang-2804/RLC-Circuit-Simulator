@@ -19,7 +19,6 @@ public class GuiPanel extends JPanel {
 	
 	public void paint(Graphics g) {
 		Graphics2D g2D = (Graphics2D) g;
-		g2D.setBackground(Color.red);
 		circuit.DrawCircuit(g2D);
 	}
 }
