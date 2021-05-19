@@ -210,17 +210,16 @@ public class Panel extends JPanel{
 				new Calculate(circuit);
 				for (RLCcomponent temp: circuit.getComponents()) {
 					System.out.println(temp.getU().toString());
-					//System.out.println(temp.getI().toString());
+					System.out.println(temp.getI().toString());
 					System.out.println(temp.getR().toString());
 				}
 				if(tablePanel != null){
 						remove(tablePanel);
 					}
 					tablePanel = new TablePanel(circuit);
-					tablePanel.setBounds(465, (int)SpecSetting.Height, (int)SpecSetting.Width - 2, 234);
-					tablePanel.setBorder(new LineBorder(Color.BLACK, 2, true));
 					add(tablePanel);
-					tablePanel.repaint();
+					//tablePanel.repaint();
+					revalidate();
 					repaint();
 			}
 		});
