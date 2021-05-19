@@ -10,15 +10,14 @@ import Complex.Complex;
 
 
 public abstract class RLCcomponent extends Component {
-
+	private Complex R;
+	private Complex U;
+	private Complex I;
+	
 	RLCcomponent(double spec, String name) {
 		super(spec, name);
 		// TODO Auto-generated constructor stub
 	}
-	
-	private Complex R;
-	private Complex U;
-	private Complex I;
 
 	
 	public Complex getR() {
