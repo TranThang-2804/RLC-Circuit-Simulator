@@ -34,11 +34,11 @@ public class Calculate {
 					temp.setR(com);
 				}
 				else if (temp instanceof Capacitor) {
-					com = new Complex(0.0,-2*Math.PI*((Source) circuit.getSource()).getFrequency()*temp.getSpec());
+					com = new Complex(0.0,-1/(2*Math.PI*((Source) circuit.getSource()).getFrequency()*temp.getSpec()));
 					temp.setR(com);
 				}
 				else if (temp instanceof Inductor) {
-					com = new Complex(0.0,1/(2*Math.PI*((Source) circuit.getSource()).getFrequency()*temp.getSpec()));
+					com = new Complex(0.0,2*Math.PI*((Source) circuit.getSource()).getFrequency()*temp.getSpec());
 					temp.setR(com);
 				}
 			}
