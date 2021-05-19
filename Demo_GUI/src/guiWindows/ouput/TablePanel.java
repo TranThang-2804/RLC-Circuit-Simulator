@@ -1,6 +1,5 @@
 package guiWindows.ouput;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -8,73 +7,84 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
 import Components.RLCcomponents.RLCcomponent;
 import backend.Calculate;
 import circuit.Circuit;
-import guiWindows.drawcircuit.GuiPanel;
 import guiWindows.drawcircuit.SpecSetting;
 
 public class TablePanel extends JPanel{
 	
 	public TablePanel(Circuit circuit) {
-		Object[] data = new Object[4];
+		Object[] data = new Object[3];
 		JTable table = new JTable();
-		JPanel tablecontainer = new JPanel();
 		DefaultTableModel model = new DefaultTableModel();
 		Color backgroundcolor = new Color(238, 238, 238);
-		JPanel panelverticle = new JPanel();
+		JLabel labelLeft[] = new JLabel[3];
+		JLabel labelRight[] = new JLabel[3];
 		
 		new Calculate(circuit);
 		
-		panelverticle.setPreferredSize(new Dimension(100,45));
-		panelverticle.setBackground(backgroundcolor);
-		panelverticle.setVisible(true);
-		
 		for(RLCcomponent rlccomponent:circuit.getComponents()) {
-			data[0] = rlccomponent.getName();
-			data[1] = rlccomponent.getU().toString();
-			data[2] = rlccomponent.getI().toString();
-			data[3] = rlccomponent.getR().toString();
+			data[0] = rlccomponent.getU().toString();
+			data[1] = rlccomponent.getI().toString();
+			data[2] = rlccomponent.getR().toString();
 			
 			model.addColumn(rlccomponent.getName(), data);
 		}
 		
 		
 		setBounds(465, (int)SpecSetting.Height, (int)SpecSetting.Width - 2, 234);
-		//setLayout(new BorderLayout());
-		//setBorder(new LineBorder(Color.BLACK, 2, true));
+		setLayout(null);
+		setBorder(new LineBorder(Color.BLACK, 2, true));
 		
 		table.setModel(model);
 		table.setBackground(backgroundcolor);
-		table.setShowHorizontalLines(true);
-		table.setShowVerticalLines(true);
-		table.setShowGrid(true);
-		table.setRowHeight(30);
-		table.setGridColor(Color.black); 
-		table.setFillsViewportHeight(true);
-		table.setPreferredScrollableViewportSize(new Dimension(450,63));
-		
+		table.setRowHeight(20);
+		table.setFillsViewportHeight(false);
 		table.setEnabled(false);
 		
-		table.setVisible(true);
-		
 		JScrollPane sp = new JScrollPane(table);
+		sp.setViewportView(table);
+		sp.setBounds((int)((SpecSetting.Width - 2)/2-90*circuit.getComponents().size()/2), 
+							95, 
+							90*circuit.getComponents().size(), 
+							table.getRowHeight()*4+table.getRowMargin()*3);
 		sp.setVisible(true);
 		
-		tablecontainer.add(table);
-		tablecontainer.setVisible(true);
+		labelLeft[0] = new JLabel("U");
+		labelLeft[1] = new JLabel("I");
+		labelLeft[2] = new JLabel("Z");
 		
-		//tablecontainer.setBorder(new LineBorder(Color.BLACK, 2, false));
-		
-		
-		//add(panelverticle, BorderLayout.NORTH);
-		//add(panelverticle, BorderLayout.SOUTH);
-		add(sp);
-		
+		labelRight[0] = new JLabel("V");
+		labelRight[1] = new JLabel("A");
+		labelRight[2] = new JLabel("Ohm");
 	
+		
+		labelLeft[0].setBounds(sp.getX()- 15, sp.getY() + 20, 10, 20);
+		labelLeft[1].setBounds(sp.getX()- 15, sp.getY() + 40, 10, 20);
+		labelLeft[2].setBounds(sp.getX()- 15, sp.getY() + 60, 10, 20);
+		
+		for(int i = 0; i<3; i++) {
+			labelLeft[i].setHorizontalAlignment(SwingConstants.CENTER);
+			labelRight[i].setHorizontalAlignment(SwingConstants.CENTER);
+			
+			labelLeft[i].setBounds(sp.getX()- 15, 
+								   sp.getY() + 20*(i+1), 
+								   10, 
+								   20);
+			
+			labelRight[i].setBounds(sp.getX()+sp.getWidth(),
+									sp.getY()+20*(i+1),
+									30,
+									20);
+			add(labelRight[i]);
+			add(labelLeft[i]);
+		}
+		add(sp);
 		setVisible(true);
 	}
 }
