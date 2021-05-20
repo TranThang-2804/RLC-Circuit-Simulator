@@ -1,10 +1,10 @@
-package Components.Source;
+package components.source;
 
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
-import Components.RLCcomponents.Resistor;
+import components.rlccomponents.Resistor;
 
 public class ACsource extends Source{
 	public ACsource(double spec, double frequency, String name) {

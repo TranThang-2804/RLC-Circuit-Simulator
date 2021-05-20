@@ -4,7 +4,7 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
-import Components.RLCcomponents.Resistor;
+import components.rlccomponents.Resistor;
 
 public class SpecSetting {
 	public static Image serieImage = new ImageIcon(Resistor.class.getResource("/imgs/registor.png")).getImage();
