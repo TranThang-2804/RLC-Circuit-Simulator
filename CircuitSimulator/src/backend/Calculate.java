@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import circuit.Circuit;
 import complex.Complex;
 import components.rlccomponents.*;
-import components.source.ACsource;
-import components.source.DCsource;
 import components.source.Source;
 
 public class Calculate {
