@@ -1,7 +1,6 @@
 package guiWindows.input;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 
 import Components.RLCcomponents.Capacitor;
 import Components.RLCcomponents.Inductor;
@@ -211,17 +210,17 @@ public class Panel extends JPanel{
 				if(circuit.getSourceType()){
 					circuit.getSource().setFrequency(Double.parseDouble(tfFrequency.getText()));
 				}
-				for(int i = 0; i < circuit.getComponents().size(); i++) {
-					System.out.println(circuit.getComponents().get(i).getSpec());
-				}
-				System.out.println(circuit.getSource().getSpec());
-				System.out.println(circuit.getSource().getFrequency());
+				// for(int i = 0; i < circuit.getComponents().size(); i++) {
+				// 	System.out.println(circuit.getComponents().get(i).getSpec());
+				// }
+				// System.out.println(circuit.getSource().getSpec());
+				// System.out.println(circuit.getSource().getFrequency());
 				new Calculate(circuit);
-				for (RLCcomponent temp: circuit.getComponents()) {
-					System.out.println(temp.getU().toString());
-					System.out.println(temp.getI().toString());
-					System.out.println(temp.getR().toString());
-				}
+				// for (RLCcomponent temp: circuit.getComponents()) {
+				// 	System.out.println(temp.getU().toString());
+				// 	System.out.println(temp.getI().toString());
+				// 	System.out.println(temp.getR().toString());
+				// }
 				if(tablePanel != null){
 						remove(tablePanel);
 					}
@@ -317,7 +316,6 @@ public class Panel extends JPanel{
 					}
 					panelToDraw = new GuiPanel(circuit);
 					panelToDraw.setBounds(465, 0, (int)SpecSetting.Width, (int)SpecSetting.Height);
-					//panelToDraw.setBorder(BorderFactory.createLineBorder(Color.black));
 					add(panelToDraw);
 					panelToDraw.repaint();
 					repaint();
