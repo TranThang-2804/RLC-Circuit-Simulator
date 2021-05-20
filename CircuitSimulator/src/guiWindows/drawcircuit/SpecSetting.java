@@ -21,20 +21,20 @@ public class SpecSetting {
 	public static double Height = 241;				//(can be change)	//The Panel Height 
 	
 
-	public static double serieImageScale = 0.06;
+	public static double serieImageScale = 0.08;
 	public static double serielowerYlocation = 200;
-	public static double serieupperYlocation = 120;
+	public static double serieupperYlocation = 60;
 	public static double serielabelX = 20;
 	public static double serielabelY = 5;
 	
-	public static double parallelImageScale = 0.06;
+	public static double parallelImageScale = 0.1;
 	public static double parallelComponentDistance = 800;
 
-	public static double parallelupperYlocation = 120;
+	public static double parallelupperYlocation = 70;
 	public static double parallellabelX = 30;
 	public static double parallellabelY; 
 	
-	public static double sourcescale = 0.25;
+	public static double sourcescale = 0.3;
 
 	
 	
