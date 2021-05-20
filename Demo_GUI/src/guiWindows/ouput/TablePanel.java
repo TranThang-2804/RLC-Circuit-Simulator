@@ -24,7 +24,17 @@ public class TablePanel extends JPanel{
 		Color backgroundcolor = new Color(238, 238, 238);
 		JLabel labelLeft[] = new JLabel[3];
 		JLabel labelRight[] = new JLabel[3];
-		
+		final int tablePanelLocateX = 465;
+		final int tablePanelLocateY = (int)SpecSetting.Height + 30;
+		final int tablePanelWidth = (int)SpecSetting.Width - 2;
+		final int tablePanelHeight = 208;
+		final int tableLocateX = (int)((SpecSetting.Width - 2)/2-90*circuit.getComponents().size()/2);
+		final int tableLocateY = 65;
+		final int labelLeftLocateX = tableLocateX - 15;
+		final int labelLocateY = tableLocateY + 17;
+		final int labelLeftWidth = 10;
+		final int labelRightWidth = 30;
+		final int labelHeight = 20;
 		new Calculate(circuit);
 		
 		for(RLCcomponent rlccomponent:circuit.getComponents()) {
@@ -36,7 +46,7 @@ public class TablePanel extends JPanel{
 		}
 		
 		
-		setBounds(465, (int)SpecSetting.Height, (int)SpecSetting.Width - 2, 234);
+		setBounds(tablePanelLocateX, tablePanelLocateY, tablePanelWidth , tablePanelHeight);
 		setLayout(null);
 		setBorder(new LineBorder(Color.BLACK, 2, true));
 		
@@ -45,13 +55,13 @@ public class TablePanel extends JPanel{
 		table.setRowHeight(20);
 		table.setFillsViewportHeight(false);
 		table.setEnabled(false);
-		
+
+		final int tableWidth = 90 * circuit.getComponents().size();
+		final int tableHeight = table.getRowHeight()*4+table.getRowMargin()*3;
+
 		JScrollPane sp = new JScrollPane(table);
 		sp.setViewportView(table);
-		sp.setBounds((int)((SpecSetting.Width - 2)/2-90*circuit.getComponents().size()/2), 
-							95, 
-							90*circuit.getComponents().size(), 
-							table.getRowHeight()*4+table.getRowMargin()*3);
+		sp.setBounds(tableLocateX, tableLocateY, tableWidth, tableHeight);
 		sp.setVisible(true);
 		
 		labelLeft[0] = new JLabel("U");
@@ -61,29 +71,19 @@ public class TablePanel extends JPanel{
 		labelRight[0] = new JLabel("V");
 		labelRight[1] = new JLabel("A");
 		labelRight[2] = new JLabel("Ohm");
-	
 		
-		labelLeft[0].setBounds(sp.getX()- 15, sp.getY() + 20, 10, 20);
-		labelLeft[1].setBounds(sp.getX()- 15, sp.getY() + 40, 10, 20);
-		labelLeft[2].setBounds(sp.getX()- 15, sp.getY() + 60, 10, 20);
-		
-		for(int i = 0; i<3; i++) {
+		for(int i = 0; i < 3; i ++) {
 			labelLeft[i].setHorizontalAlignment(SwingConstants.CENTER);
 			labelRight[i].setHorizontalAlignment(SwingConstants.CENTER);
 			
-			labelLeft[i].setBounds(sp.getX()- 15, 
-								   sp.getY() + 20*(i+1), 
-								   10, 
-								   20);
+			labelLeft[i].setBounds(labelLeftLocateX, labelLocateY + 20*i, labelLeftWidth, labelHeight);
 			
-			labelRight[i].setBounds(sp.getX()+sp.getWidth(),
-									sp.getY()+20*(i+1),
-									30,
-									20);
+			labelRight[i].setBounds(tableLocateX + tableWidth, labelLocateY +20*i, labelRightWidth, labelHeight);
 			add(labelRight[i]);
 			add(labelLeft[i]);
 		}
 		add(sp);
+		setBackground(new Color(255, 250, 205));
 		setVisible(true);
 	}
 }

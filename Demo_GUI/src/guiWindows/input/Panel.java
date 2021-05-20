@@ -207,6 +207,15 @@ public class Panel extends JPanel{
 				for(int i = 0; i < circuit.getComponents().size(); i++) {
 					circuit.getComponents().get(i).setSpec(Double.parseDouble(tfield[i].getText()));
 				}
+				circuit.getSource().setSpec(Double.parseDouble(tfVoltage.getText()));
+				if(circuit.getSourceType()){
+					circuit.getSource().setFrequency(Double.parseDouble(tfFrequency.getText()));
+				}
+				for(int i = 0; i < circuit.getComponents().size(); i++) {
+					System.out.println(circuit.getComponents().get(i).getSpec());
+				}
+				System.out.println(circuit.getSource().getSpec());
+				System.out.println(circuit.getSource().getFrequency());
 				new Calculate(circuit);
 				for (RLCcomponent temp: circuit.getComponents()) {
 					System.out.println(temp.getU().toString());
@@ -218,9 +227,10 @@ public class Panel extends JPanel{
 					}
 					tablePanel = new TablePanel(circuit);
 					add(tablePanel);
-					//tablePanel.repaint();
 					revalidate();
 					repaint();
+					tablePanel.revalidate();
+					tablePanel.repaint();
 			}
 		});
 	}

@@ -11,7 +11,7 @@ public class Screen extends JFrame{
 		
 		Container cp = getContentPane();
 		cp.setLayout(null);
-		setLocation(350, 200);
+		setLocation(200, 200);
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(0, 0, 1024, 526);
 		cp.add(tabbedPane);
@@ -19,6 +19,7 @@ public class Screen extends JFrame{
 		panelParallel = new Panel(false);
 		tabbedPane.addTab("Parallel", null, panelParallel, null);
 		panelParallel.setLayout(null);
+		panelParallel.setBackground(new Color(224, 255, 255));
 		
 		panelSerial = new Panel(true);
 		tabbedPane.addTab("Serial", null, panelSerial, null);
