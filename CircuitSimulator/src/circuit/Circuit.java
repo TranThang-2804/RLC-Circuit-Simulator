@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 import Components.Component;
 import Components.RLCcomponents.RLCcomponent;
-import Components.Source.ACsource;
-import Components.Source.Source;
+import Components.source.ACsource;
+import Components.source.Source;
 import guiWindows.drawcircuit.SpecSetting;
 
 public class Circuit {

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import Complex.Complex;
 import Components.RLCcomponents.*;
-import Components.Source.ACsource;
-import Components.Source.DCsource;
-import Components.Source.Source;
+import Components.source.ACsource;
+import Components.source.DCsource;
+import Components.source.Source;
 import circuit.Circuit;
 
 public class Calculate {

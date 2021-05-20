@@ -6,11 +6,11 @@ import Components.RLCcomponents.Capacitor;
 import Components.RLCcomponents.Inductor;
 import Components.RLCcomponents.RLCcomponent;
 import Components.RLCcomponents.Resistor;
-import Components.Source.ACsource;
-import Components.Source.DCsource;
+import Components.source.ACsource;
+import Components.source.DCsource;
 import backend.Calculate;
 import circuit.Circuit;
-import guiWindows.drawcircuit.GuiPanel;
+import guiWindows.drawcircuit.CircuitPanel;
 import guiWindows.drawcircuit.SpecSetting;
 import guiWindows.ouput.TablePanel;
 
@@ -46,7 +46,7 @@ public class Panel extends JPanel{
 	private boolean connectType;
 	private int AC = 0;
 	private int DC = 0;
-	GuiPanel panelToDraw;
+	CircuitPanel panelToDraw;
 	TablePanel tablePanel;
 	public Panel(boolean connectType) {
 		this.connectType = connectType;
@@ -314,7 +314,7 @@ public class Panel extends JPanel{
 					if(panelToDraw != null){
 						remove(panelToDraw);
 					}
-					panelToDraw = new GuiPanel(circuit);
+					panelToDraw = new CircuitPanel(circuit);
 					panelToDraw.setBounds(465, 0, (int)SpecSetting.Width, (int)SpecSetting.Height);
 					add(panelToDraw);
 					panelToDraw.repaint();

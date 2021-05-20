@@ -9,9 +9,9 @@ import javax.swing.JPanel;
 
 import circuit.Circuit;
 
-public class GuiPanel extends JPanel {
+public class CircuitPanel extends JPanel {
 	Circuit circuit = new Circuit();
-	public GuiPanel(Circuit circuit) {
+	public CircuitPanel(Circuit circuit) {
 		this.circuit = circuit;
 	    setLayout(null);
 	    setPreferredSize(new Dimension((int)SpecSetting.Width, (int)SpecSetting.Height));
