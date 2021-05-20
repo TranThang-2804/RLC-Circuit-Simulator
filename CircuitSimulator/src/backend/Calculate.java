@@ -2,12 +2,12 @@ package backend;
 
 import java.util.ArrayList;
 
-import Complex.Complex;
-import Components.RLCcomponents.*;
-import Components.source.ACsource;
-import Components.source.DCsource;
-import Components.source.Source;
 import circuit.Circuit;
+import complex.Complex;
+import components.rlccomponents.*;
+import components.source.ACsource;
+import components.source.DCsource;
+import components.source.Source;
 
 public class Calculate {
 	private Circuit circuit = new Circuit();

@@ -1,11 +1,11 @@
-package Components.source;
+package components.source;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.geom.AffineTransform;
 
-import Components.Component;
+import components.Component;
 import guiWindows.drawcircuit.SpecSetting;
 
 public abstract class Source extends Component{

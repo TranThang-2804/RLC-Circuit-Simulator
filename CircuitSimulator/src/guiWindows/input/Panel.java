@@ -2,14 +2,14 @@ package guiWindows.input;
 
 import javax.swing.*;
 
-import Components.RLCcomponents.Capacitor;
-import Components.RLCcomponents.Inductor;
-import Components.RLCcomponents.RLCcomponent;
-import Components.RLCcomponents.Resistor;
-import Components.source.ACsource;
-import Components.source.DCsource;
 import backend.Calculate;
 import circuit.Circuit;
+import components.rlccomponents.Capacitor;
+import components.rlccomponents.Inductor;
+import components.rlccomponents.RLCcomponent;
+import components.rlccomponents.Resistor;
+import components.source.ACsource;
+import components.source.DCsource;
 import guiWindows.drawcircuit.CircuitPanel;
 import guiWindows.drawcircuit.SpecSetting;
 import guiWindows.ouput.TablePanel;
