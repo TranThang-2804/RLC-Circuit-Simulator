@@ -3,10 +3,10 @@ package circuit;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
-import Components.Component;
-import Components.RLCcomponents.RLCcomponent;
-import Components.Source.ACsource;
-import Components.Source.Source;
+import components.Component;
+import components.rlccomponents.RLCcomponent;
+import components.source.ACsource;
+import components.source.Source;
 import guiWindows.drawcircuit.SpecSetting;
 
 public class Circuit {

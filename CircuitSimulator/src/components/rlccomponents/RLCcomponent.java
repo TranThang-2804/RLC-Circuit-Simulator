@@ -1,12 +1,13 @@
-package Components.RLCcomponents;
+package components.rlccomponents;
+
 import java.awt.Graphics2D;
 
 import java.awt.Image;
 import java.awt.geom.AffineTransform;
 
-import Components.Component;
+import complex.Complex;
+import components.Component;
 import guiWindows.drawcircuit.SpecSetting;
-import Complex.Complex;
 
 
 public abstract class RLCcomponent extends Component {

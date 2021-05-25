@@ -1,4 +1,4 @@
-package Components.RLCcomponents;
+package components.rlccomponents;
 
 import java.awt.Image;
 

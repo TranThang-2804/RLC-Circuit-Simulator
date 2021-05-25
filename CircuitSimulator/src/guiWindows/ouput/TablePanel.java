@@ -10,9 +10,9 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
-import Components.RLCcomponents.RLCcomponent;
 import backend.Calculate;
 import circuit.Circuit;
+import components.rlccomponents.RLCcomponent;
 import guiWindows.drawcircuit.SpecSetting;
 
 public class TablePanel extends JPanel{
