@@ -57,6 +57,7 @@ public abstract class Source extends Component{
 					 	 (int)(SpecSetting.parallelupperYlocation+SpecSetting.parallelComponentHeight-SpecSetting.parallelconnectorwidth/2), 
 					 	 (int)(SpecSetting.Width-2*startX+SpecSetting.parallelconnectorwidth/2),
 					 	 (int)SpecSetting.parallelconnectorwidth);
+			g2D.drawString(this.name+"  "+this.spec, (int)(startX+SpecSetting.serieComponentWidth/2-SpecSetting.parallellabelX + 5), (int)(SpecSetting.serieupperYlocation + SpecSetting.parallelComponentHeight/2 - SpecSetting.parallellabelY));
 		}
 		else if(connectType == true){
 			Image image =  getComponentImage();
@@ -82,6 +83,8 @@ public abstract class Source extends Component{
 					 	 (int)(SpecSetting.serieupperYlocation), 
 					 	 (int)(SpecSetting.serieconnectorwidth), 
 					 	 (int)(SpecSetting.serielowerYlocation+SpecSetting.serieconnectorwidth/2-SpecSetting.serieupperYlocation));
+			g2D.drawString(this.name+"  "+this.spec, (int)(SpecSetting.Width/2-image.getWidth(null)*SpecSetting.sourcescale*SpecSetting.serieImageScale/2), 
+					  (int)(SpecSetting.serielowerYlocation-image.getHeight(null)*(double)SpecSetting.serieImageScale*SpecSetting.sourcescale/2 - 10));
 		}
 	}
 
