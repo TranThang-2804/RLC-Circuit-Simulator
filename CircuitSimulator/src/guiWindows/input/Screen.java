@@ -24,6 +24,7 @@ public class Screen extends JFrame{
 		panelSerial = new Panel(true);
 		tabbedPane.addTab("Serial", null, panelSerial, null);
 		panelSerial.setLayout(null);
+		panelSerial.setBackground(new Color(224, 255, 255));
 		
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
