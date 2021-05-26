@@ -14,10 +14,21 @@ public class Calculate {
 	
 	public Calculate(Circuit circuit) {
 		this.circuit = circuit;
+		if (circuit.getConnectType()) {
+			//true serial
 		this.CalculateR();
 		this.CalculateReq();
 		this.CalculateI();
 		this.CalculateU();
+		}
+		else {
+			// false parallel
+			this.CalculateR();
+			this.CalculateReq();
+			this.CalculateU();
+			this.CalculateI();
+			
+		}
 	}
 	
 	
@@ -36,6 +47,7 @@ public class Calculate {
 				else if (temp instanceof Capacitor) {
 					com = new Complex(0.0,-1/(2*Math.PI*((Source) circuit.getSource()).getFrequency()*temp.getSpec()));
 					temp.setR(com);
+
 				}
 				else if (temp instanceof Inductor) {
 					com = new Complex(0.0,2*Math.PI*((Source) circuit.getSource()).getFrequency()*temp.getSpec());
@@ -90,9 +102,9 @@ public class Calculate {
 		ArrayList<RLCcomponent> components = new ArrayList<RLCcomponent>();
 		components = circuit.getComponents();
 		
-		this.CalculateI();
 		
 		if (circuit.getConnectType()) {
+			this.CalculateI();
 			//true serial
 			for (RLCcomponent temp: components) {
 				com = temp.getI().times(temp.getR());
@@ -131,10 +143,25 @@ public class Calculate {
 					temp.setI(com);
 				}
 				else if (temp instanceof Inductor) {
-					System.out.println("Short circuit! (Inductor in parallel circuit) "); // TO-DO deal with GUI
+					if (circuit.getSourceType())
+					{	//AC
+						com = new Complex(circuit.getSource().getSpec(),0.0).divides(temp.getR()); 
+						temp.setI(com);	
+					}	
+						else
+						//DC
+						System.out.println("Short circuit! (Inductor in parallel circuit) "); // TO-DO deal with GUI
+
 				}
 				else if (temp instanceof Capacitor) {
-					temp.setI(new Complex(0.0,0.0));
+					if (circuit.getSourceType())
+					{		//AC
+						com = new Complex(circuit.getSource().getSpec(),0.0).divides(temp.getR()); 
+						temp.setI(com);
+					}
+					else
+						//DC
+						temp.setI(new Complex(0.0,0.0));
 				}
 			}
 		}

@@ -1,5 +1,6 @@
 package main;
 
+import Complex.Complex;
 import guiWindows.input.Screen;
 
 public class ElectricalCircuitSimulator {
