@@ -215,7 +215,7 @@ public class Panel extends JPanel{
 				// }
 				// System.out.println(circuit.getSource().getSpec());
 				// System.out.println(circuit.getSource().getFrequency());
-				new Calculate(circuit);
+				//new Calculate(circuit);
 				// for (RLCcomponent temp: circuit.getComponents()) {
 				// 	System.out.println(temp.getU().toString());
 				// 	System.out.println(temp.getI().toString());
