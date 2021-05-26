@@ -1,5 +1,7 @@
 package complex;
 
+import java.text.DecimalFormat;
+
 public class Complex {
     private final double re;   // the real part
     private final double im;   // the imaginary part
@@ -12,10 +14,17 @@ public class Complex {
 
     // return a string representation of the invoking Complex object
     public String toString() {
-        if (im == 0) return re + "";
-        if (re == 0) return im + "i";
-        if (im <  0) return re + " - " + (-im) + "i";
-        return re + " + " + im + "i";
+    	if (this.equals(new Complex(Double.POSITIVE_INFINITY,0.0))) return "inf";
+    	DecimalFormat df = new DecimalFormat("#.###");
+    	String roundIm = df.format(im);
+    	String roundRe = df.format(re);
+    
+        if (im == 0) return roundRe + "";
+        if (re == 0) return roundIm + "i";
+        if (im <  0) 
+        	return roundRe + roundIm + "i";
+
+        return roundRe + " + " + roundIm + "i";
     }
 
     // return abs/modulus/magnitude
@@ -26,6 +35,10 @@ public class Complex {
     // return a new Complex object whose value is (this + b)
     public Complex plus(Complex b) {
         Complex a = this;             // invoking object
+        
+        if (a.equals(new Complex(Double.POSITIVE_INFINITY,0))||b.equals(new Complex(Double.POSITIVE_INFINITY,0)))
+        	return new Complex(Double.POSITIVE_INFINITY,0); // plus with positive inf
+        
         double real = a.re + b.re;
         double imag = a.im + b.im;
         return new Complex(real, imag);
@@ -42,6 +55,9 @@ public class Complex {
     // return a new Complex object whose value is (this * b)
     public Complex times(Complex b) {
         Complex a = this;
+        
+        if (a.equals(new Complex(0,0))||b.equals(new Complex(0,0))) 
+        	return new Complex(0,0); // multiple with 0
         double real = a.re * b.re - a.im * b.im;
         double imag = a.re * b.im + a.im * b.re;
         return new Complex(real, imag);
@@ -65,6 +81,8 @@ public class Complex {
     // return a / b
     public Complex divides(Complex b) {
         Complex a = this;
+        if (b.equals(new Complex(0.0,0.0))) return new Complex(Double.POSITIVE_INFINITY,0.0);
+        if (b.equals(new Complex(Double.POSITIVE_INFINITY,0.0))) return new Complex(0.0,0.0);
         return a.times(b.reciprocal());
     }
 
