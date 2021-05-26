@@ -2,6 +2,8 @@ package backend;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import circuit.Circuit;
 import complex.Complex;
 import components.rlccomponents.*;
@@ -149,7 +151,7 @@ public class Calculate {
 						else
 						{//DC
 						temp.setI(new Complex(Double.POSITIVE_INFINITY,0));
-						System.out.println("Short circuit! (Inductor in parallel circuit) "); // TO-DO deal with GUI
+						JOptionPane.showMessageDialog(null,"Short circuit! (Inductor "+temp.getName() +" in parallel circuit)\n Please enter another non-negative value for this Inductor!"); // TO-DO deal with GUI
 						}
 					
 				}
