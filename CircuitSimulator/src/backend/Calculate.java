@@ -147,9 +147,11 @@ public class Calculate {
 						temp.setI(com);	
 					}	
 						else
-						//DC
+						{//DC
+						temp.setI(new Complex(Double.POSITIVE_INFINITY,0));
 						System.out.println("Short circuit! (Inductor in parallel circuit) "); // TO-DO deal with GUI
-
+						}
+					
 				}
 				else if (temp instanceof Capacitor) {
 					if (circuit.getSourceType())
