@@ -169,37 +169,4 @@ public class Calculate {
 		}
 		
 	}
-	
-	
-	
-//	public static void main(String[] args) {
-//		Source s = new ACsource(10,5,"source1");
-//		Circuit c = new Circuit(true,s);
-//		RLCcomponent ca = new Capacitor(1,"c1");
-//		RLCcomponent r = new Resistor(10,"r1");
-//		RLCcomponent l = new Inductor(1,"l1");
-//		c.addComponent(ca);
-//		c.addComponent(r);
-//		c.addComponent(l);
-//		
-//		Calculate cal = new Calculate(c);
-//		
-//		Complex com;
-//		
-//		
-//		ArrayList<RLCcomponent> components = new ArrayList<RLCcomponent>();
-//		components = c.getComponents();	
-//		for (RLCcomponent temp: components) {
-//			com = temp.getU();
-//			System.out.println(com.toString());
-//			com = temp.getI();
-//			System.out.println(com.toString());
-//
-//			com = temp.getR();
-//			System.out.println(com.toString());
-//			System.out.println();
-//
-//		}
-//
-//	}
 }
