@@ -202,6 +202,7 @@ public class Panel extends JPanel{
 		btnSubmit.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				try{
 				for(int i = 0; i < circuit.getComponents().size(); i++) {
 					circuit.getComponents().get(i).setSpec(Double.parseDouble(tfield[i].getText()));
 				}
@@ -209,6 +210,9 @@ public class Panel extends JPanel{
 				if(circuit.getSourceType()){
 					circuit.getSource().setFrequency(Double.parseDouble(tfFrequency.getText()));
 				}
+				} catch (Exception evt){
+					JOptionPane.showMessageDialog(null, evt.getMessage());
+				} 
 				if(tablePanel != null){
 						remove(tablePanel);
 					}
