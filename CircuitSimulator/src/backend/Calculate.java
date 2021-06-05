@@ -7,31 +7,77 @@ import javax.swing.JOptionPane;
 import circuit.Circuit;
 import complex.Complex;
 import components.rlccomponents.*;
+import components.source.ACsource;
 import components.source.Source;
 
 public class Calculate {
-	private Circuit circuit = new Circuit();
-	
-	public Calculate(Circuit circuit) {
-		this.circuit = circuit;
+	private static Circuit circuit = new Circuit();
+
+	public Calculate(Circuit cir) {
+		circuit = cir;
+		this.CalculateR();
+		
 		if (circuit.getConnectType()) {
 			//true serial
-		this.CalculateR();
-		this.CalculateReq();
-		this.CalculateI();
-		this.CalculateU();
+			this.CalculateI();
+			this.CalculateU();
 		}
 		else {
 			// false parallel
-			this.CalculateR();
-			this.CalculateReq();
 			this.CalculateU();
 			this.CalculateI();
 			
 		}
+		
 	}
 	
+	public static Complex CalculateReq() {
+		Complex com = new Complex(0.0,0.0),Req = new Complex(0.0,0.0);
+		ArrayList<RLCcomponent> components = circuit.getComponents();
+		
+		if (circuit.getConnectType()) {
+			for (RLCcomponent temp: components) {		
+				Req = Req.plus(temp.getR());
+
+			}
+			return Req;
+		}
+		else {
+			for (RLCcomponent temp: components) {
+				com.plus(new Complex(1,0.0).divides(temp.getR()));
+			}
+			Req = new Complex(1,0.0).divides(com);
+			return Req;
+		}
+	}
 	
+	public void CalculateR() {
+		ArrayList<RLCcomponent> components = new ArrayList<RLCcomponent>();
+		components = circuit.getComponents();
+
+		for (RLCcomponent temp: components) {
+				temp.calculateRcomponent(circuit);
+		}	
+	}
+	
+	public void CalculateI() {
+		ArrayList<RLCcomponent> components = new ArrayList<RLCcomponent>();
+		components = circuit.getComponents();
+
+		for (RLCcomponent temp: components) {
+				temp.calculateIcomponent(circuit);
+		}
+	}
+	
+	public void CalculateU() {
+		ArrayList<RLCcomponent> components = new ArrayList<RLCcomponent>();
+		components = circuit.getComponents();
+
+		for (RLCcomponent temp: components) {
+				temp.calculateUcomponent(circuit);
+		}
+	}
+/******************************************************************************************************
 	public void CalculateR() {
 		Complex com;
 		ArrayList<RLCcomponent> components = new ArrayList<RLCcomponent>();
@@ -169,37 +215,36 @@ public class Calculate {
 		}
 		
 	}
-	
-	
-	
-//	public static void main(String[] args) {
-//		Source s = new ACsource(10,5,"source1");
-//		Circuit c = new Circuit(true,s);
-//		RLCcomponent ca = new Capacitor(1,"c1");
-//		RLCcomponent r = new Resistor(10,"r1");
-//		RLCcomponent l = new Inductor(1,"l1");
-//		c.addComponent(ca);
-//		c.addComponent(r);
-//		c.addComponent(l);
-//		
-//		Calculate cal = new Calculate(c);
-//		
-//		Complex com;
-//		
-//		
-//		ArrayList<RLCcomponent> components = new ArrayList<RLCcomponent>();
-//		components = c.getComponents();	
-//		for (RLCcomponent temp: components) {
-//			com = temp.getU();
-//			System.out.println(com.toString());
-//			com = temp.getI();
-//			System.out.println(com.toString());
-//
-//			com = temp.getR();
-//			System.out.println(com.toString());
-//			System.out.println();
-//
-//		}
-//
-//	}
+//*******************************************************************************************
+*/
+
+	public static void main(String[] args) {
+		Source s = new ACsource(10,5,"source1");
+	Circuit c = new Circuit(true,s);
+	RLCcomponent ca = new Capacitor(1,"c1");
+	RLCcomponent r = new Resistor(10,"r1");
+	RLCcomponent l = new Inductor(1,"l1");
+		c.addComponent(ca);
+		c.addComponent(r);
+		c.addComponent(l);
+		
+		Complex com;
+		ArrayList<RLCcomponent> components = new ArrayList<RLCcomponent>();
+		components = c.getComponents();	
+		
+		c.calculate();
+		for (RLCcomponent temp: components) {
+			com = temp.getU();
+			System.out.println(com.toString());
+			com = temp.getI();
+			System.out.println(com.toString());
+
+			com = temp.getR();
+			System.out.println(com.toString());
+			System.out.println();
+
+		}
+
 }
+
+	}

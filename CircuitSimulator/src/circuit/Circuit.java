@@ -3,7 +3,10 @@ package circuit;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
+import backend.CalculateInterface;
+import complex.Complex;
 import components.Component;
+import components.rlccomponents.Capacitor;
 import components.rlccomponents.RLCcomponent;
 import components.source.ACsource;
 import components.source.Source;
@@ -12,6 +15,7 @@ import guiWindows.drawcircuit.SpecSetting;
 public class Circuit {
 	private boolean connectType = true;												//false: parallel, true: in line		
 	private ArrayList<RLCcomponent> components = new ArrayList<>();
+
 	private Source source;
 	
 	public Circuit(boolean connectType,Source source) {
@@ -52,6 +56,42 @@ public class Circuit {
 	}
 	public void setConnectType(boolean connectType){
 		this.connectType = connectType;
+	}
+	
+	public Complex calculateReq() {
+		Complex com = new Complex(0.0,0.0),Req = new Complex(0.0,0.0);
+		ArrayList<RLCcomponent> components = this.getComponents();
+		
+		if (this.getConnectType()) {
+			for (RLCcomponent temp: components) {		
+				Req = Req.plus(temp.getR());
+
+			}
+			return Req;
+		}
+		else {
+			for (RLCcomponent temp: components) {
+				com.plus(new Complex(1,0.0).divides(temp.getR()));
+			}
+			Req = new Complex(1,0.0).divides(com);
+			return Req;
+		}
+	}
+	
+	public void calculate() {
+		for (RLCcomponent temp: components) {
+			temp.calculateRcomponent(this);
+		}
+		if (connectType)
+			for (RLCcomponent temp: components) {
+				temp.calculateIcomponent(this);
+				temp.calculateUcomponent(this);
+			}
+		else
+			for (RLCcomponent temp: components) {
+				temp.calculateUcomponent(this);
+				temp.calculateIcomponent(this);
+			}
 	}
 
 	public void DrawCircuit(Graphics2D g2D) {
