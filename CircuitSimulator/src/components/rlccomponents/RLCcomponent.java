@@ -4,7 +4,6 @@ import java.awt.Graphics2D;
 
 import java.awt.Image;
 import java.awt.geom.AffineTransform;
-
 import backend.CalculateException;
 import backend.CalculateInterface;
 import circuit.Circuit;
