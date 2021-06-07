@@ -19,7 +19,7 @@ public class Circuit {
 
 	private Source source;
 	
-	public Circuit(boolean connectType,Source source) throws CalculateException{
+	public Circuit(boolean connectType,Source source) {
 		this.connectType = connectType;
 		this.source = source;
 	}
