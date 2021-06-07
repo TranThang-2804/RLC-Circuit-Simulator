@@ -6,10 +6,8 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import backend.CalculateException;
-import backend.CalculateInterface;
 import complex.Complex;
 import components.Component;
-import components.rlccomponents.Capacitor;
 import components.rlccomponents.RLCcomponent;
 import components.source.ACsource;
 import components.source.Source;
@@ -21,7 +19,7 @@ public class Circuit {
 
 	private Source source;
 	
-	public Circuit(boolean connectType,Source source) {
+	public Circuit(boolean connectType,Source source) throws CalculateException{
 		this.connectType = connectType;
 		this.source = source;
 	}
@@ -81,28 +79,27 @@ public class Circuit {
 		}
 	}
 	
-	public void calculate() {
-		for (RLCcomponent temp: components) {
-			temp.calculateRcomponent(this);
+	public void calculate(){
+		
+		try {
+			for (RLCcomponent temp: components) {
+					temp.calculateRcomponent(this);
+				}
+				if (connectType)
+					for (RLCcomponent temp: components) {
+						temp.calculateIcomponent(this);
+						temp.calculateUcomponent(this);
+					}
+				else
+					for (RLCcomponent temp: components) {
+						temp.calculateUcomponent(this);
+						temp.calculateIcomponent(this);
+					}
 		}
-
-		if (connectType)
-			for (RLCcomponent temp: components) {
-				try {
-					temp.calculateIcomponent(this);}
-				catch (CalculateException e) {
-					JOptionPane.showMessageDialog(null,"Short circuit! (Inductor" +temp.getName()+" in parallel circuit)\n Please remove this Inductor!"); // TO-DO deal with GUI
-				}				
-				temp.calculateUcomponent(this);
-			}
-		else
-			for (RLCcomponent temp: components) {
-				temp.calculateUcomponent(this);
-				try {
-					temp.calculateIcomponent(this);}
-				catch (CalculateException e) {
-					JOptionPane.showMessageDialog(null,"Short circuit! (Inductor" +temp.getName()+" in parallel circuit)\n Please remove this Inductor!"); // TO-DO deal with GUI
-				}			}
+		catch (CalculateException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,e.getMessage()); 
+		}	
 	}
 
 	public void DrawCircuit(Graphics2D g2D) {

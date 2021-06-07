@@ -1,18 +1,15 @@
 package components.rlccomponents;
 
 import java.awt.Image;
-import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 
-import backend.Calculate;
-import backend.CalculateInterface;
+import backend.CalculateException;
 import circuit.Circuit;
 import complex.Complex;
 import components.source.Source;
 
-public class Capacitor extends RLCcomponent implements CalculateInterface{
+public class Capacitor extends RLCcomponent{
 	
 	public Capacitor(double spec, String name){
 		super(spec, name);
@@ -20,7 +17,7 @@ public class Capacitor extends RLCcomponent implements CalculateInterface{
 	
 	@Override
 	public void calculateRcomponent(Circuit circuit) {
-		// TO-DO handle exception
+		
 		Complex com;		
 		if (circuit.getSourceType()) {
 			// ACsource
@@ -34,7 +31,7 @@ public class Capacitor extends RLCcomponent implements CalculateInterface{
 		}
 	}
 	@Override
-	public void calculateIcomponent(Circuit circuit) {
+	public void calculateIcomponent(Circuit circuit) throws CalculateException{
 		Complex com,Req = circuit.calculateReq();	
 	
 		if (circuit.getConnectType()) {

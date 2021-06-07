@@ -2,6 +2,8 @@ package complex;
 
 import java.text.DecimalFormat;
 
+import backend.CalculateException;
+
 public class Complex {
     private final double re;   // the real part
     private final double im;   // the imaginary part
@@ -83,9 +85,10 @@ public class Complex {
         if (b.equals(new Complex(Double.POSITIVE_INFINITY,0.0))||b.equals(new Complex(Double.NEGATIVE_INFINITY,0.0))) return new Complex(0.0,0.0);
         
         //handle divide by 0
-        if (b.equals(new Complex(0,0)))
+        if (b.equals(new Complex(0,0))) {
         	if (this.re()<0) return new Complex(Double.NEGATIVE_INFINITY,0);
         	else return new Complex(Double.POSITIVE_INFINITY,0);
+        }
         	
         // a/b = a * 1/b
         return a.times(b.reciprocal());

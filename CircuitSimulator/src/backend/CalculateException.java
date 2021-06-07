@@ -1,7 +1,5 @@
 package backend;
 
-import javax.swing.JOptionPane;
-
 public class CalculateException extends Exception {
 
 	public CalculateException() {

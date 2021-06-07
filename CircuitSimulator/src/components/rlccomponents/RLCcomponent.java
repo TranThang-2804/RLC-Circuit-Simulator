@@ -4,7 +4,6 @@ import java.awt.Graphics2D;
 
 import java.awt.Image;
 import java.awt.geom.AffineTransform;
-import java.util.ArrayList;
 
 import backend.CalculateException;
 import backend.CalculateInterface;
@@ -14,7 +13,7 @@ import components.Component;
 import guiWindows.drawcircuit.SpecSetting;
 
 
-public abstract class RLCcomponent extends Component{
+public abstract class RLCcomponent extends Component implements CalculateInterface{
 	private Complex R;
 	private Complex U;
 	private Complex I;
@@ -23,19 +22,17 @@ public abstract class RLCcomponent extends Component{
 		super(spec, name);
 		// TODO Auto-generated constructor stub
 	}
-
+	@Override
 	public void calculateRcomponent(Circuit circuit) {
-		
 	}
 	
-
-	public void calculateIcomponent(Circuit circuit) throws CalculateException {
-		
+	@Override
+	public void calculateIcomponent(Circuit circuit) throws CalculateException {	
 	}
-
+	
 	// since there are only 2 types: all parallel or all series
-
-	public void calculateUcomponent(Circuit circuit) {
+	@Override
+	public void calculateUcomponent(Circuit circuit){
 		Complex com;
 		if (circuit.getConnectType()) {
 			//true serial

@@ -1,25 +1,22 @@
 package components.rlccomponents;
 
 import java.awt.Image;
-import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 
-import backend.Calculate;
 import backend.CalculateException;
-import backend.CalculateInterface;
 import circuit.Circuit;
 import complex.Complex;
 import components.source.Source;
 
-public class Inductor extends RLCcomponent implements CalculateInterface{
+public class Inductor extends RLCcomponent{
 
 	public Inductor(double spec, String name){
 		super(spec, name);
 	}
 	@Override
 	public void calculateRcomponent(Circuit circuit) {
+		
 		Complex com;
 		
 		if (circuit.getSourceType()) {
@@ -53,7 +50,7 @@ public class Inductor extends RLCcomponent implements CalculateInterface{
 				//DC
 				this.setI(new Complex(Double.POSITIVE_INFINITY,0));
 				// TO-DO throw new exception
-				throw new CalculateException("Inductor in parallel DC's circuit");
+				throw new CalculateException("Short circuit! (Inductor" +this.getName()+" in parallel circuit)\n Please remove this Inductor!");
 			}	
 		}
 	}
