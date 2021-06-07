@@ -13,4 +13,4 @@ A simple electrical circuit simulator that let users build an electrical circuit
 Follow this Google Drive [link]() or YouTube [link]().
 
 ## Demo
-Follow this Google Drive [link](https://drive.google.com/file/d/1ObwmRH0W-Npyxtfb6FdL3JzrWcdeaHwg/view?usp=sharing) or YouTube [link](https://www.youtube.com/watch?v=tC7LrHkbbYM). {@youtube: https://www.youtube.com/watch?v=HndN6P9ke6U}
+Follow this Google Drive [link](https://drive.google.com/file/d/1ObwmRH0W-Npyxtfb6FdL3JzrWcdeaHwg/view?usp=sharing) or YouTube [link](https://www.youtube.com/watch?v=tC7LrHkbbYM).
