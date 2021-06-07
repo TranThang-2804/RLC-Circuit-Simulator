@@ -3,6 +3,9 @@ package circuit;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
+import backend.CalculateException;
 import backend.CalculateInterface;
 import complex.Complex;
 import components.Component;
@@ -82,16 +85,24 @@ public class Circuit {
 		for (RLCcomponent temp: components) {
 			temp.calculateRcomponent(this);
 		}
+
 		if (connectType)
 			for (RLCcomponent temp: components) {
-				temp.calculateIcomponent(this);
+				try {
+					temp.calculateIcomponent(this);}
+				catch (CalculateException e) {
+					JOptionPane.showMessageDialog(null,"Short circuit! (Inductor" +temp.getName()+" in parallel circuit)\n Please remove this Inductor!"); // TO-DO deal with GUI
+				}				
 				temp.calculateUcomponent(this);
 			}
 		else
 			for (RLCcomponent temp: components) {
 				temp.calculateUcomponent(this);
-				temp.calculateIcomponent(this);
-			}
+				try {
+					temp.calculateIcomponent(this);}
+				catch (CalculateException e) {
+					JOptionPane.showMessageDialog(null,"Short circuit! (Inductor" +temp.getName()+" in parallel circuit)\n Please remove this Inductor!"); // TO-DO deal with GUI
+				}			}
 	}
 
 	public void DrawCircuit(Graphics2D g2D) {

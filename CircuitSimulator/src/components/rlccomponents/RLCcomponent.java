@@ -6,6 +6,7 @@ import java.awt.Image;
 import java.awt.geom.AffineTransform;
 import java.util.ArrayList;
 
+import backend.CalculateException;
 import backend.CalculateInterface;
 import circuit.Circuit;
 import complex.Complex;
@@ -22,15 +23,18 @@ public abstract class RLCcomponent extends Component{
 		super(spec, name);
 		// TODO Auto-generated constructor stub
 	}
+
 	public void calculateRcomponent(Circuit circuit) {
 		
 	}
+	
 
-	public void calculateIcomponent(Circuit circuit) {
+	public void calculateIcomponent(Circuit circuit) throws CalculateException {
 		
 	}
-	
+
 	// since there are only 2 types: all parallel or all series
+
 	public void calculateUcomponent(Circuit circuit) {
 		Complex com;
 		if (circuit.getConnectType()) {

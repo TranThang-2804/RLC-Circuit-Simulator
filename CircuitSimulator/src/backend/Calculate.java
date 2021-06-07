@@ -8,6 +8,7 @@ import circuit.Circuit;
 import complex.Complex;
 import components.rlccomponents.*;
 import components.source.ACsource;
+import components.source.DCsource;
 import components.source.Source;
 
 public class Calculate {
@@ -65,7 +66,11 @@ public class Calculate {
 		components = circuit.getComponents();
 
 		for (RLCcomponent temp: components) {
-				temp.calculateIcomponent(circuit);
+			try {
+				temp.calculateIcomponent(circuit);}
+			catch (CalculateException e) {
+				JOptionPane.showMessageDialog(null,"Short circuit! (Inductor" +temp.getName()+" in parallel circuit)\n Please remove this Inductor!");
+			}
 		}
 	}
 	
@@ -219,20 +224,21 @@ public class Calculate {
 */
 
 	public static void main(String[] args) {
-		Source s = new ACsource(10,5,"source1");
+		Source s = new ACsource(220,100,"source1");
 	Circuit c = new Circuit(true,s);
-	RLCcomponent ca = new Capacitor(1,"c1");
-	RLCcomponent r = new Resistor(10,"r1");
-	RLCcomponent l = new Inductor(1,"l1");
+	RLCcomponent ca = new Capacitor(1.6/(10*10*10*10*10),"c1");
+	RLCcomponent r = new Resistor(100,"r1");
+	RLCcomponent l = new Inductor(0.16,"l1");
 		c.addComponent(ca);
 		c.addComponent(r);
 		c.addComponent(l);
 		
+		c.calculate();
+
 		Complex com;
 		ArrayList<RLCcomponent> components = new ArrayList<RLCcomponent>();
 		components = c.getComponents();	
 		
-		c.calculate();
 		for (RLCcomponent temp: components) {
 			com = temp.getU();
 			System.out.println(com.toString());

@@ -1,5 +1,7 @@
 package backend;
 
+import javax.swing.JOptionPane;
+
 public class CalculateException extends Exception {
 
 	public CalculateException() {
@@ -8,7 +10,6 @@ public class CalculateException extends Exception {
 
 	public CalculateException(String message) {
 		super(message);
-		// TODO Auto-generated constructor stub
 	}
 
 	public CalculateException(Throwable cause) {

@@ -50,7 +50,7 @@ public class Complex {
     public Complex times(Complex b) {
     	
     	//handle this times 0
-    	//if (b.equals(new Complex(0,0))||this.equals(new Complex(0,0))) return new Complex(0,0);
+    	if (b.equals(new Complex(0,0))||this.equals(new Complex(0,0))) return new Complex(0,0);
     	
         double real = this.re * b.re - this.im * b.im;
         double imag = this.re * b.im + this.im * b.re;

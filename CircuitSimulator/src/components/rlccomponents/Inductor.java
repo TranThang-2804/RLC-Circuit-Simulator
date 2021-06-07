@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 import backend.Calculate;
+import backend.CalculateException;
 import backend.CalculateInterface;
 import circuit.Circuit;
 import complex.Complex;
@@ -33,7 +34,7 @@ public class Inductor extends RLCcomponent implements CalculateInterface{
 		}
 	}
 	@Override
-	public void calculateIcomponent(Circuit circuit) {
+	public void calculateIcomponent(Circuit circuit) throws CalculateException {
 		Complex com,Req = circuit.calculateReq();	
 	
 		if (circuit.getConnectType()) {
@@ -52,7 +53,7 @@ public class Inductor extends RLCcomponent implements CalculateInterface{
 				//DC
 				this.setI(new Complex(Double.POSITIVE_INFINITY,0));
 				// TO-DO throw new exception
-				JOptionPane.showMessageDialog(null,"Short circuit! (Inductor "+this.getName() +" in parallel circuit)\n Please enter another non-negative value for this Inductor!"); // TO-DO deal with GUI
+				throw new CalculateException("Inductor in parallel DC's circuit");
 			}	
 		}
 	}
