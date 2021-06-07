@@ -2,7 +2,6 @@ package guiWindows.input;
 
 import javax.swing.*;
 
-import backend.Calculate;
 import circuit.Circuit;
 import components.rlccomponents.Capacitor;
 import components.rlccomponents.Inductor;
@@ -203,6 +202,7 @@ public class Panel extends JPanel{
 		btnSubmit.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				try{
 				for(int i = 0; i < circuit.getComponents().size(); i++) {
 					circuit.getComponents().get(i).setSpec(Double.parseDouble(tfield[i].getText()));
 				}
@@ -210,17 +210,9 @@ public class Panel extends JPanel{
 				if(circuit.getSourceType()){
 					circuit.getSource().setFrequency(Double.parseDouble(tfFrequency.getText()));
 				}
-				// for(int i = 0; i < circuit.getComponents().size(); i++) {
-				// 	System.out.println(circuit.getComponents().get(i).getSpec());
-				// }
-				// System.out.println(circuit.getSource().getSpec());
-				// System.out.println(circuit.getSource().getFrequency());
-				//new Calculate(circuit);
-				// for (RLCcomponent temp: circuit.getComponents()) {
-				// 	System.out.println(temp.getU().toString());
-				// 	System.out.println(temp.getI().toString());
-				// 	System.out.println(temp.getR().toString());
-				// }
+				} catch (Exception evt){
+					JOptionPane.showMessageDialog(null, evt.getMessage());
+				} 
 				if(tablePanel != null){
 						remove(tablePanel);
 					}
