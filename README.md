@@ -1,32 +1,16 @@
-# OOP_Circuit_Project
+# Electrical Circuit Simulator
+## Description
+A simple electrical circuit simulator that let users build an electrical circuit and perform circuit analysis on it.
 
-MEMBER ASSIGNMENT
+## Contributors
+| Name | Assignment |
+|---|----------|
+| Ngo Quoc Thang | <ul> <li> General Class Diagram </li> <li> Use case Diagram </li> <li> Source code of guiWindow.input Package </li> <li> Source code of guiWindow.output Package </li> <li> Source code of circuit Package </li> <li> Package Class Diagram for above packages </li> <li> Linking outputs with inputs of modules </li> <li> Extension on remove components </li> </ul>|
+| Tran Duc Thang | <ul> <li> Source code of components Package </li> <li> Source code of guiWindow.drawcircuit Package </li> <li> Source code of guiWindow.output Package </li>  <li> Source code of circuit Package </li> <li> Package Class Diagram for above packages </li> <li> Drawcircuit method is maintainable and customizable </li> </ul>|
+| Phan Nguyen Anh | <ul> <li> Use case Diagram </li> <li> Source code of backend Package </li> <li> Source code of complex Package </li> <li> Package Class Diagram for above packages </li> </ul>|
 
-  Phan Nguyên Anh	20194727	
-    -	Use case Diagram
-    -	Source code of backend Package
-    -	Source code of complex Package
-    -	Package Class Diagram for above packages
-    
-  Ngô Quốc Thắng	20194839	
-    -	General Class Diagram
-    -	Use case Diagram
-    -	Source code of guiWindow.input Package
-    -	Source code of guiWindow.output Package
-    -	Source code of circuit Package
-    -	Package Class Diagram for above packages
-    -	Linking outputs with inputs of modules
-    -	Extension on remove components
-    
-  Trần Đức Thắng	20194842	
-    -	Source code of components Package
-    -	Source code of guiWindow.drawcircuit Package
-    -	Source code of guiWindow.output Package
-    -	Source code of circuit Package
-    -	Package Class Diagram for above packages
-    -	Extension on draw circuit method to be more 
-    maintainable and customizable.
- 
+## Presentation
+Follow this Google Drive [link]().
 
-Link for demo video of our project:
-https://drive.google.com/file/d/1ObwmRH0W-Npyxtfb6FdL3JzrWcdeaHwg/view?usp=sharing
+## Demo
+Follow this Google Drive [link](https://drive.google.com/file/d/1ObwmRH0W-Npyxtfb6FdL3JzrWcdeaHwg/view?usp=sharing).
