@@ -204,10 +204,19 @@ public class Panel extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				try{
 				for(int i = 0; i < circuit.getComponents().size(); i++) {
+					if(Double.parseDouble(tfield[i].getText()) < 0) {
+						JOptionPane.showMessageDialog(null, "Value of component number " + (i+1) + " can not be negative. Please change to another value.");
+					}
 					circuit.getComponents().get(i).setSpec(Double.parseDouble(tfield[i].getText()));
+				}
+				if(Double.parseDouble(tfVoltage.getText()) < 0) {
+					JOptionPane.showMessageDialog(null, "Value of voltage can not be negative. Please change to another value.");
 				}
 				circuit.getSource().setSpec(Double.parseDouble(tfVoltage.getText()));
 				if(circuit.getSourceType()){
+					if(Double.parseDouble(tfFrequency.getText()) < 0) {
+						JOptionPane.showMessageDialog(null, "Value of frequency can not be negative. Please change to another value.");	
+					}
 					circuit.getSource().setFrequency(Double.parseDouble(tfFrequency.getText()));
 				}
 				} catch (Exception evt){
@@ -282,7 +291,7 @@ public class Panel extends JPanel{
 				int check = 0;
 				for(int i = 0; i < components.size(); i++){
 					if(tfield[i].getText().equals("")){
-						JOptionPane.showMessageDialog(null, "Value of component number " + (i+1) + "can not be null. Please add a value.");
+						JOptionPane.showMessageDialog(null, "Value of component number " + (i+1) + " can not be null. Please add a value.");
 						break;
 					}
 					else{
