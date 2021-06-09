@@ -10,7 +10,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
-import backend.Calculate;
 import circuit.Circuit;
 import components.rlccomponents.RLCcomponent;
 import guiWindows.drawcircuit.SpecSetting;
@@ -35,7 +34,7 @@ public class TablePanel extends JPanel{
 		final int labelLeftWidth = 10;
 		final int labelRightWidth = 30;
 		final int labelHeight = 20;
-		new Calculate(circuit);
+		circuit.calculate();
 		
 		for(RLCcomponent rlccomponent:circuit.getComponents()) {
 			data[0] = rlccomponent.getU().toString();
