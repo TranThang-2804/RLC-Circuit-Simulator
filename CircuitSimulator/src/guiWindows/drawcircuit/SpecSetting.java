@@ -12,7 +12,7 @@ public class SpecSetting {
 	public static double serieOGComponentHeight = serieImage.getHeight(null);
 	public static double parallelOGComponentWidth = serieOGComponentHeight;
 	public static double parallelOGComponentHeight = serieOGComponentWidth;
-	public static double connectorwidth = 40; 
+	public static double connectorwidth = 45; 
 	
 	
 	
