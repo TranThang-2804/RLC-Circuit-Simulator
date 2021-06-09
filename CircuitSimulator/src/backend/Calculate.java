@@ -151,7 +151,7 @@ public class Calculate {
 						else
 						{//DC
 						temp.setI(new Complex(Double.POSITIVE_INFINITY,0));
-						JOptionPane.showMessageDialog(null,"Short circuit! (Inductor "+temp.getName() +" in parallel circuit)\n Please enter another non-negative value for this Inductor!"); // TO-DO deal with GUI
+						JOptionPane.showMessageDialog(null,"Short circuit! (Inductor "+temp.getName() +" in parallel circuit)\n Please remove this Inductor"); // TO-DO deal with GUI
 						}
 					
 				}
