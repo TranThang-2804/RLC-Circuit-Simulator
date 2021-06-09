@@ -10,7 +10,7 @@ A simple electrical circuit simulator that let users build an electrical circuit
 | Phan Nguyen Anh | <ul> <li> Use case Diagram </li> <li> Source code of backend Package </li> <li> Source code of complex Package </li> <li> Package Class Diagram for above packages </li> </ul>|
 
 ## Presentation
-Follow this Google Drive [link](https://drive.google.com/drive/folders/1XRbDjaPkUTuhAB1xDoa8VeymAvTcp2zF) or YouTube [link]().
+Follow this Google Drive [link](https://drive.google.com/drive/folders/1XRbDjaPkUTuhAB1xDoa8VeymAvTcp2zF) or YouTube [link](https://youtu.be/-CH8tEy7JW0).
 
 ## Demo
 Follow this Google Drive [link](https://drive.google.com/file/d/1ObwmRH0W-Npyxtfb6FdL3JzrWcdeaHwg/view?usp=sharing) or YouTube [link](https://www.youtube.com/watch?v=tC7LrHkbbYM).
