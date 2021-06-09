@@ -97,7 +97,6 @@ public class Circuit {
 					}
 		}
 		catch (CalculateException e) {
-			e.printStackTrace();
 			JOptionPane.showMessageDialog(null,e.getMessage()); 
 		}	
 	}
